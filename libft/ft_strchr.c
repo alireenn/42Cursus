@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 12:29:33 by anovelli          #+#    #+#             */
-/*   Updated: 2022/01/15 20:29:13 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/01/17 14:01:42 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	
 	while (*s != '\0' && (unsigned char)c != *s)
 		s++;
 	if ((unsigned char)c == *s)

@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 12:30:09 by anovelli          #+#    #+#             */
-/*   Updated: 2022/01/17 13:38:30 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/01/17 13:59:55 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
-
-	i = 0;
-	while(lst->next != NULL)
+	while(lst)
+	{
+		if(!lst->next)
+			return (lst);
 		lst = lst->next;
+	}
 	return (lst);
 }
