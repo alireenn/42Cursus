@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 14:38:25 by anovelli          #+#    #+#             */
-/*   Updated: 2022/01/17 16:47:33 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/01/18 05:22:34 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,4 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 	(*del)(lst->content);
 	free(lst);
 	lst = temp;
-
 }
