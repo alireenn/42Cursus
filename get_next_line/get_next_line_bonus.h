@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 18:22:10 by anovelli          #+#    #+#             */
-/*   Updated: 2022/02/01 10:12:00 by anovelli         ###   ########.fr       */
+/*   Created: 2022/01/25 22:29:53 by anovelli          #+#    #+#             */
+/*   Updated: 2022/01/30 20:10:01 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
-char	*ft_strrchr(const char *s, int c)
-{
-	int			i;
-	const char	*ini;
+# include <stdlib.h>
+# include <unistd.h>
 
-	ini = s;
-	i = ft_strlen(s);
-	s = (s + i);
-	while (*s != *ini && (unsigned char)c != *s)
-		s--;
-	if ((unsigned char)c == *s)
-		return ((char *)s);
-	return (NULL);
-}
+char	*nextline(char *save);
+char	*findnl(char *save);
+char	*ft_save(int fd, char *save);
+char	*get_next_line(int fd);
+size_t	ft_strlen(char *str);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strchr(char *s, int c);
+char	*ft_strdup(char *s1);
+
+#endif

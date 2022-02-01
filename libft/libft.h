@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 12:35:25 by anovelli          #+#    #+#             */
-/*   Updated: 2022/01/17 19:30:06 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/01/30 18:21:29 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_list
 }				t_list;
 
 //funzioni
-
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
