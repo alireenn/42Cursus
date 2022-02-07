@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:05:30 by anovelli          #+#    #+#             */
-/*   Updated: 2022/02/07 20:36:07 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/02/07 21:22:20 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 int	ft_printf(const char *str, ...)
 {
 	t_flag	*flag;
-	int		i;
 	int		ret;
+	char	*s1;
 
 	ret = 0;
+	s1 = copy(str, s1);
 	flag = malloc(sizeof(t_flag));
 	if (!flag)
 		return (0);
@@ -29,7 +30,7 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			printf("sono entrato\n");
-			//checkflags(&str, flag);
+			checkflags(s1, flag);
 		}
 		else
 			ret = ret + write(1, &(*str), 1);
