@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:05:35 by anovelli          #+#    #+#             */
-/*   Updated: 2022/02/08 03:18:22 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/02/08 05:51:47 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ char	*copy(const char *str, char *s1);
 int		ft_isdigit(int c);
 void	checkdeno(const char *str, t_flag *flag, int i);
 void	reset_zero(t_flag *flag);
+void	ft_c(t_flag *flag);
 
 #endif

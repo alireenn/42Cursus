@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 17:48:08 by anovelli          #+#    #+#             */
-/*   Updated: 2022/02/08 03:36:37 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/02/08 05:53:53 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	checkflags(const char *str, t_flag *flag, int i)
 		}
 		else if (str[i] == '#')
 			flag->hash = 1;
-		else if (str[i] == '0' && ft_isdigit(str[i] - 1) == 0)
+		else if (str[i] == '0' && ft_isdigit(str[i - 1]) == 0)
 			flag->zero = 1;
 		else if (str[i] == ' ')
 			flag->space = 1;

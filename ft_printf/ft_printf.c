@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:05:30 by anovelli          #+#    #+#             */
-/*   Updated: 2022/02/08 03:26:14 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/02/08 05:53:26 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,5 @@ int main()
 {
 	int d=5;
 	//printf("%%");
-	ft_printf("ciaooo %*s ciaooo %10d\n", -5, "ciao", 5);
+	ft_printf("111%10c222%-5c333%3c444\n", 'a', 'b', 'c');
 }
