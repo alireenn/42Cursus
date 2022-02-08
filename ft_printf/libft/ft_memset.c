@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils2.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 21:26:35 by anovelli          #+#    #+#             */
-/*   Updated: 2022/02/08 03:37:05 by anovelli         ###   ########.fr       */
+/*   Created: 2022/01/10 16:14:51 by anovelli          #+#    #+#             */
+/*   Updated: 2022/01/11 14:56:17 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ft_printf.h"
+#include"libft.h"
 
-void	ft_c(t_flag flag)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	
+	unsigned char	*ptr;
+
+	ptr = b;
+	while (len-- > 0)
+		*ptr++ = c;
+	return (b);
 }

@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils2.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 21:26:35 by anovelli          #+#    #+#             */
-/*   Updated: 2022/02/08 03:37:05 by anovelli         ###   ########.fr       */
+/*   Created: 2022/01/15 14:26:14 by anovelli          #+#    #+#             */
+/*   Updated: 2022/01/15 15:23:43 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ft_printf.h"
+#include"libft.h"
 
-void	ft_c(t_flag flag)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	
+	int		i;
+	char	*rt;
+
+	i = 0;
+	if (!s || (!s && !f))
+		return (ft_strdup(""));
+	else if (!f)
+		return (ft_strdup(s));
+	rt = ft_strdup(s);
+	if (!rt)
+		return (NULL);
+	while (s[i])
+	{
+		rt[i] = (*f)(i, s[i]);
+		i++;
+	}
+	return (rt);
 }

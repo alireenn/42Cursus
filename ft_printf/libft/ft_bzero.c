@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils2.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 21:26:35 by anovelli          #+#    #+#             */
-/*   Updated: 2022/02/08 03:37:05 by anovelli         ###   ########.fr       */
+/*   Created: 2022/01/11 14:20:20 by anovelli          #+#    #+#             */
+/*   Updated: 2022/01/11 14:22:51 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ft_printf.h"
+#include"libft.h"
 
-void	ft_c(t_flag flag)
+void	ft_bzero(void *s, size_t n)
 {
-	
+	ft_memset((void *) s, '\0', (size_t) n);
 }

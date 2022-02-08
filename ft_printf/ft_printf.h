@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:05:35 by anovelli          #+#    #+#             */
-/*   Updated: 2022/02/07 21:24:12 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/02/08 03:18:22 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
+# include "./libft/libft.h"
 
 typedef struct s_flag
 {
@@ -30,12 +31,17 @@ typedef struct s_flag
 	int		plus;
 	int		prec;
 	int		wdt;
+	int		perc;
+	int		len;
 	va_list	arg;
 }	t_flag;
 
 int		ft_printf(const char *str, ...);
 void	allzero(t_flag *flag);
-char	*checkflags(char *str, t_flag *flag);
+int		checkflags(const char *str, t_flag *flag, int i);
 char	*copy(const char *str, char *s1);
+int		ft_isdigit(int c);
+void	checkdeno(const char *str, t_flag *flag, int i);
+void	reset_zero(t_flag *flag);
 
 #endif

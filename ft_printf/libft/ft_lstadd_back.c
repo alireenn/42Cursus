@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils2.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 21:26:35 by anovelli          #+#    #+#             */
-/*   Updated: 2022/02/08 03:37:05 by anovelli         ###   ########.fr       */
+/*   Created: 2022/01/17 14:05:43 by anovelli          #+#    #+#             */
+/*   Updated: 2022/01/17 14:58:49 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ft_printf.h"
+#include"libft.h"
 
-void	ft_c(t_flag flag)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	
+	t_list	*end;
+
+	if (lst)
+	{
+		if (*lst)
+		{
+			end = ft_lstlast(*lst);
+			end->next = new;
+		}
+		else
+			*lst = new;
+	}	
 }
