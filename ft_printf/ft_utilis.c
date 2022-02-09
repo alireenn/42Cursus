@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 17:48:08 by anovelli          #+#    #+#             */
-/*   Updated: 2022/02/08 05:53:53 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/02/09 18:50:49 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ void	checkdeno(const char *str, t_flag *flag, int i)
 	// 	ft_u(flag);
 	// else if (str[i] == 'p')
 	// 	ft_p(flag);
-	// else if (str[i] == 'd' || str[i] == 'i')
-	// 	ft_di(flag);
+	else if (str[i] == 'd' || str[i] == 'i')
+		ft_di(flag);
 	// else if (str[i] == 'x')
 	// 	ft_x(flag);
 	// else if (str[i] == 'X')

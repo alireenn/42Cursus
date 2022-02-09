@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:05:35 by anovelli          #+#    #+#             */
-/*   Updated: 2022/02/08 05:51:47 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/02/09 19:00:10 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
-# include "./libft/libft.h"
 
 typedef struct s_flag
 {
@@ -44,5 +43,13 @@ int		ft_isdigit(int c);
 void	checkdeno(const char *str, t_flag *flag, int i);
 void	reset_zero(t_flag *flag);
 void	ft_c(t_flag *flag);
+void	ft_di(t_flag *flag);
+void	ft_s(t_flag *flag);
+void	ft_putchar(char c);
+void	ft_putnbr(int n);
+void	ft_putstr_fd(char *s, int fd);
+int		ft_isdigit(int c);
+void	*ft_memset(void *b, int c, size_t len);
+char	*ft_strchr(const char *s, int c);
 
 #endif
