@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils3.c                                        :+:      :+:    :+:   */
+/*   ft_utils1.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/09 13:02:18 by anovelli          #+#    #+#             */
-/*   Updated: 2022/02/09 18:50:44 by anovelli         ###   ########.fr       */
+/*   Created: 2022/02/10 14:41:53 by anovelli          #+#    #+#             */
+/*   Updated: 2022/02/10 14:50:53 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include"ft_printf.h"
 
-void	ft_putchar(char c)
+void	ft_putchar(char c, t_flag *flag)
 {
 	write(1, &c, 1);
+	flag->counter++;
 }
 
-void	ft_putnbr(int n)
+char	*ft_strchr(const char *s, int ch)
 {
-	if (n == -2147483648)
+	char	*str;
+	size_t	i;
+
+	str = (char *)s;
+	i = 0;
+	while (str[i])
 	{
-		ft_putchar('-');
-		ft_putchar('2');
-		n = 147483648;
+		if (str[i] == (char)ch)
+			return (&str[i]);
+		i++;
 	}
-	if (n < 0)
-	{
-		ft_putchar('-');
-		n *= -1;
-	}
-	if (n < 10)
-	{
-		ft_putchar(n + '0');
-		return ;
-	}
-	else
-		ft_putnbr(n / 10);
-	ft_putnbr(n % 10);
+	if ((char)ch == '\0')
+		return (&str[i]);
+	return (NULL);
 }

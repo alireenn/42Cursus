@@ -5,48 +5,48 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 14:05:30 by anovelli          #+#    #+#             */
-/*   Updated: 2022/02/09 18:50:30 by anovelli         ###   ########.fr       */
+/*   Created: 2022/02/10 14:08:08 by anovelli          #+#    #+#             */
+/*   Updated: 2022/02/10 14:45:31 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include"ft_printf.h"
+
+t_flag	*new_flag(void)
+{
+	t_flag	flag;
+
+	flag = malloc(sizeof(t_flag));
+	if (!flag)
+		return (NULL);
+	flag->type = '\0';
+	flag->hash = 0;
+	flag->minus = 0;
+	flag->plus = 0;
+	flag->point = 0;
+	flag->accuracy = 0;
+	flag->space = 0;
+	flag->uppercase = 0;
+	flag->width = 0;
+	flag->zero = 0;
+	return (flag);
+}
 
 int	ft_printf(const char *str, ...)
 {
+	va_list	args;
+	char	*s
+	char	*temp;
 	t_flag	*flag;
-	int		ret;
-	int		i;
 
-	ret = 0;
-	i = -1;
-	flag = malloc(sizeof(t_flag));
-	if (!flag)
-		return (0);
-	va_start(flag->arg, str);
-	allzero(flag);
-	while (str[++i])
+	s = (char *)str;
+	va_startt(args, str);
+	flag = new_flag();
+	while (*s)
 	{
-		if (str[i] == '%')
-		{
-			i = checkflags(str, flag, i);
-			checkdeno(str, flag, i);
-		}
-		else
-			ret += write(1, &str[i], 1);
+		temp = s;
+		s = nextarg(s);
+		printorigin(temp, s - temp, flag);
+		s = get_flag(s, flag, args);
 	}
-	va_end(flag->arg);
-	ret += flag->len;
-	free(flag);
-	return (ret);
 }
-
-/*int	main(void)
-{
-	int	d;
-
-	d = 5;
-	//printf("%%");
-	ft_printf("111%10c222%5d333%3c444\n", 'a', d, 'c');
-}
-*/
