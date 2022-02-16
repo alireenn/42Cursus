@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 14:22:48 by anovelli          #+#    #+#             */
-/*   Updated: 2022/02/16 16:51:08 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/02/16 18:18:55 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ char	*parsearg(char *s, va_list args, t_flag *flag)
 		return (ft_di(s, va_arg(args, int), flag));
 	else if (*s == 'u')
 		return (ft_u(s, args, flag));
-	else if (s == 'p')
+	else if (*s == 'p')
 		return (ft_p(s, args, flag));
 	else if (*s == 'x' || *s == 'X')
 		return (ft_hex(s, args, flag));

@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:58:05 by anovelli          #+#    #+#             */
-/*   Updated: 2022/02/16 18:11:42 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/02/16 18:19:22 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ void	prehex(char *s, long long n, int tp, t_flag *flag)
 		ft_putchar('-', flag);
 	if (flag->width && !flag->minus)
 		print_space(flag->width - tp, flag);
-	if (flag->plus && num >= 0)
+	if (flag->plus && n >= 0)
 		ft_putchar('+', flag);
-	if (flag->space && num >= 0 && !flag->plus)
+	if (flag->space && n >= 0 && !flag->plus)
 		ft_putchar(' ', flag);
 	if (flag->accuracy > get_hex(n))
 		print_zero(flag->accuracy - get_hex(n), flag);
@@ -77,15 +77,15 @@ void	prehex(char *s, long long n, int tp, t_flag *flag)
 	}
 }
 
-int	putnbr_hex(char c, long long n, t_flag flag)
+int	putnbr_hex(char c, long long n, t_flag *flag)
 {
 	char	r[18];
 	int		i;
 
-	if (flag->point && flag->accuracy == 0 && num == 0);
+	if (flag->point && flag->accuracy == 0 && n == 0)
 		return (0);
 	i = 1;
-	if (num == 0)
+	if (n == 0)
 		ft_putchar('0', flag);
 	while (n)
 	{
@@ -98,7 +98,7 @@ int	putnbr_hex(char c, long long n, t_flag flag)
 	while (i)
 	{
 		ft_putchar(r[i], flag);
-		i--:
+		i--;
 	}
 	return (0);
 }
