@@ -1,9 +1,8 @@
 NAME = libftprintf.a
-SRC = ft_printf.c ft_utils.c 
+
+SRC = *.c
 
 OBJS = $(SRC:.c=.o)
-
-BONUS_OBJS = $(BONUS_SRC:.c=.o)
 
 $(NAME):
 		gcc -Wall -Werror -Wextra -c $(SRC)
@@ -12,12 +11,10 @@ $(NAME):
 
 all: $(NAME)
 
-bonus: 
-		all
-
+bonus: all
 
 clean:
-		rm -f $(OBJS) $(BONUS_OBJS)
+		rm -f $(OBJS)
 
 fclean: clean
 		rm -f $(NAME)
