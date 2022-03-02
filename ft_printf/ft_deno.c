@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 18:17:52 by anovelli          #+#    #+#             */
-/*   Updated: 2022/02/28 16:31:41 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/03/02 14:18:49 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,3 @@ void	ft_x(unsigned int x, t_flag *flag, char *base)
 		ft_putchar(base[x % 16], flag);
 	}
 }
-
-// s d i u x X c p 
-
-// s = putstring
-// c = putchar (o write)
-// p x X = putnbr con base 16
-// u 
-// d i = putint (putnbr base 10)
