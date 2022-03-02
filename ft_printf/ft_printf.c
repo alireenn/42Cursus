@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 21:16:20 by anovelli          #+#    #+#             */
-/*   Updated: 2022/02/28 16:06:15 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/02/28 17:44:25 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,10 @@ int	ft_deno(char *str, int i, t_flag *flag)
 		ft_x(va_arg(flag->arg, unsigned int), flag, "0123456789abcdef");
 	else if (str[i] == 'X')
 		ft_x(va_arg(flag->arg, unsigned int), flag, "0123456789ABCDEF");
+	else if (str[i] == 'p')
+		ft_p(va_arg(flag->arg, unsigned int), flag);
+	else if (str[i] == '%')
+		flag->count += write(1, "%", 1);
 	return (i);
 }
 
@@ -91,17 +95,12 @@ int	ft_printf(const char *str, ...)
 	return (len);
 }
 
-// #include <limits.h>
+ #include <limits.h>
 
-// int	main(void)
-// {
-	// printf("ft_printf: ");
-	// fflush(stdout);
-	// printf("\t|%d", ft_printf("%s", "diiio"));
-	// printf("\n\n");
-	// fflush(stdout);
-	// printf("   printf: ");
-	// printf("\t|%d", printf("%s", "diiio"));
-// 	printf("PRINTF: %d\n", printf(" %x ", 16));
-// 	printf("FT_PRINTF %d\n", ft_printf(" %x ", 16));
-// }
+int	main(void)
+{
+	printf("printf #1: %p %p \n", LONG_MIN, LONG_MAX);
+	printf("printf #2: %p %p \n", ULONG_MAX, -ULONG_MAX);
+	ft_printf("ft_printf #1: %p %p \n", LONG_MIN, LONG_MAX);
+	ft_printf("ft_printf #2: %p %p \n", ULONG_MAX, -ULONG_MAX);
+}

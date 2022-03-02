@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 21:00:04 by anovelli          #+#    #+#             */
-/*   Updated: 2022/02/28 15:30:40 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/02/28 17:06:07 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int		ft_deno(char *str, int i, t_flag *flag);
 void	ft_c(int c, t_flag *flag);
 void	ft_s(char *str, t_flag *flag);
 void	ft_di(int n, t_flag *flag);
-void	ft_xft_x(unsigned int x, t_flag *flag, char *base);
+void	ft_x(unsigned int x, t_flag *flag, char *base);
+void	ft_p(unsigned long long x, t_flag *flag);
 
 #endif

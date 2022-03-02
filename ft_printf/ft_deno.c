@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 18:17:52 by anovelli          #+#    #+#             */
-/*   Updated: 2022/02/28 15:29:48 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/02/28 16:31:41 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,11 @@ void	ft_x(unsigned int x, t_flag *flag, char *base)
 	}
 	else
 	{
-		ft_x(x / 16, flag);
+		ft_x(x / 16, flag, base);
 		ft_putchar(base[x % 16], flag);
 	}
 }
+
 // s d i u x X c p 
 
 // s = putstring
