@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 18:45:34 by anovelli          #+#    #+#             */
-/*   Updated: 2022/03/09 21:16:24 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/03/09 21:43:34 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (res);
+}
+int	ft_strlen(char	*str)
+{
+	int	i;
+
+	i = 0;
 }
 
 int	to_bit_and_send(char *str, pid_t pid)

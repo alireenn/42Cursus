@@ -6,9 +6,12 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 18:46:05 by anovelli          #+#    #+#             */
-/*   Updated: 2022/03/09 21:36:10 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/03/09 21:41:38 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "signal.h"
+#include "unistd.h"
 
 static void	ft_putchar(char x, int fd)
 {
@@ -40,7 +43,9 @@ void	ft_putnbr_fd(int n, int fd)
 
 void	powpow(pid_t pid)
 {
-	
+	write(1, "PID: ", 5);
+	ft_putnbr_fd(pid, 1);
+	write(1, "\n", 1);
 }
 
 int	main(void)
