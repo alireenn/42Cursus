@@ -41,7 +41,7 @@ void	ft_putnbr_fd(int n, int fd)
 	ft_putnbr_fd(n % 10, fd);
 }
 
-void	powpow(pid_t pid)
+void	powpow(pid_t pid) //questa funzione stampa solo il pid
 {
 	write(1, "PID: ", 5);
 	ft_putnbr_fd(pid, 1);
