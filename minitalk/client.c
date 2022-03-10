@@ -54,7 +54,7 @@ int	to_bit_and_send(char *str, pid_t pid)
 		while (i > 0)
 		{
 			if ((*str >> i) & 1)
-				kill(pid, SIGUSR1);
+				kill(pid, SIGUSR1); //kill manda il segnale al pid passatogli come parametro
 			else
 				kill(pid, SIGUSR2);
 			i--;
@@ -72,7 +72,7 @@ int	main(int argc, char **argv)
 	if (argc != 3)
 	{
 		write(1, "\33[91mError: Not enough arguments.\033[0m\n",
-			ft_strlen("\33[91mError: Not enough arguments.\033[0m\n"));
+			ft_strlen("\33[91mError: Not enough arguments.\033[0m\n")); //quegli strani numeri sono per dare il colore alla scritta
 
 		return (0);
 	}
