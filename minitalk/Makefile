@@ -1,27 +1,51 @@
 
-SRC = client.c server.c 
+NAME1 = ./server
+NAME2 = ./client
+BONUS1 = ./server_bonus
+BONUS2 = ./client_bonus
 
-OBJS = $(SRC:.c=.o)
+SRC1 = ./server.c
+SRC2 = ./client.c
 
-BONUS_OBJS = $(SRC:.c=.o)
+SRCB1 = ./server_bonus.c
+SRCB2 = ./client_bonus.c
 
-$(NAME):
-		gcc -Wall -Werror -Wextra -c $(SRC)
-		ar rc $(NAME) $(OBJS)
-		ranlib $(NAME)
+OBJ1 = $(SRC1:.c=.o)
+OBJ2 = $(SRC2:.c=.o)
 
-bonus: 
-		gcc -Wall -Werror -Wextra -c $(BONUS_SRC)
-		ar rc $(NAME) $(BONUS_OBJS)
+OBJB1 = $(SRCB1:.c=.o)
+OBJB2 = $(SRCB2:.c=.o)
 
-all: $(NAME)
+RM = rm -f
+
+CC = gcc -Wall -Wextra -Werror
+
+.c.o = ${CC}-c $< -o ${<:.c=.o}
+
+all: $(NAME1) $(NAME2)
+
+$(NAME1): ${OBJ1}
+
+$(NAME2): $(OBJ2)
+
+$(BONUS1): $(OBJB1)
+
+$(BONUS2): $(OBJB2)
+
+bonus: all $(BONUS1) $(BONUS2) clean
 
 clean:
-		rm -f $(OBJS) $(BONUS_OBJS)
+	${RM} $(OBJ1)
+	$(RM) $(OBJ2)
+	$(RM) $(OBJB1)
+	$(RM) $(OBJB2)
 
 fclean: clean
-		rm -f $(NAME)
-	
+	${RM} $(NAME1)
+	$(RM) $(NAME2)
+	$(RM) $(BONUS1)
+	$(RM) $(BONUS2)
+
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all bonus clean fclean re

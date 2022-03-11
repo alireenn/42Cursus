@@ -6,12 +6,13 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 18:45:34 by anovelli          #+#    #+#             */
-/*   Updated: 2022/03/09 21:43:34 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/03/11 19:04:29 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "unistd.h"
-#include "signal.h"
+#include <unistd.h>
+#include <signal.h>
+#include <stdio.h>
 
 int	ft_atoi(const char *str)
 {
@@ -37,37 +38,42 @@ int	ft_atoi(const char *str)
 	}
 	return (res);
 }
+
 int	ft_strlen(char	*str)
 {
 	int	i;
 
 	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }
 
-int	to_bit_and_send(char *str, pid_t pid)
+void	to_bit_and_send(char *str, pid_t pid)
 {
 	int		i;
+	int		k;
 
-	i = 8;
-	while (*str)
+	k = 0;
+	while (str[k])
 	{
-		while (i > 0)
+		i = 8;
+		while (i--)
 		{
-			if ((*str >> i) & 1)
+			if ((str[k] >> i) & 1)
 				kill(pid, SIGUSR1);
 			else
 				kill(pid, SIGUSR2);
-			i--;
+			usleep(100);
 		}
-		str++;
+		k++;
 		usleep(100);
 	}
 }
 
 int	main(int argc, char **argv)
 {
-	int		pid;
-	pid_t	*bit;
+	pid_t	pid;
 
 	if (argc != 3)
 	{
@@ -77,5 +83,6 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	pid = ft_atoi(argv[1]);
-	bit = to_bit_and_send(argv[2], pid);
+	printf("%d \n", pid);
+	to_bit_and_send(argv[2], pid);
 }

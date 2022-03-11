@@ -6,12 +6,12 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 18:46:05 by anovelli          #+#    #+#             */
-/*   Updated: 2022/03/09 21:41:38 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/03/11 18:34:55 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "signal.h"
-#include "unistd.h"
+#include <signal.h>
+#include <unistd.h>
 
 static void	ft_putchar(char x, int fd)
 {
@@ -20,17 +20,6 @@ static void	ft_putchar(char x, int fd)
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (n == -2147483648)
-	{
-		ft_putchar('-', fd);
-		ft_putchar('2', fd);
-		n = 147483648;
-	}
-	if (n < 0)
-	{
-		ft_putchar('-', fd);
-		n *= -1;
-	}
 	if (n < 10)
 	{
 		ft_putchar(n + '0', fd);
@@ -39,6 +28,22 @@ void	ft_putnbr_fd(int n, int fd)
 	else
 		ft_putnbr_fd(n / 10, fd);
 	ft_putnbr_fd(n % 10, fd);
+}
+
+void	ft_handler(int sig)
+{
+	static unsigned char	c = 0;
+	static int				i = 0;
+
+	c |= (sig == SIGUSR1);
+	if (++i == 8)
+	{
+		i = 0;
+		write(1, &c, 1);
+		c = 0;
+	}
+	else
+		c <<= 1;
 }
 
 void	powpow(pid_t pid)
@@ -54,4 +59,9 @@ int	main(void)
 
 	pid = getpid();
 	powpow(pid);
+	signal(SIGUSR2, ft_handler);
+	signal(SIGUSR1, ft_handler);
+	while (1)
+		pause();
+	return (0);
 }
