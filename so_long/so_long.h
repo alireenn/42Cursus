@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 13:26:12 by anovelli          #+#    #+#             */
-/*   Updated: 2022/03/25 16:44:51 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/03/26 17:00:11 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct s_enemy
 
 typedef struct s_map{
 	char	**mat;
-	int		col;
 	int		player;
 	int		x;
 	int		y;
@@ -37,7 +36,7 @@ typedef struct s_map{
 }	t_map;
 
 int	check_borders(t_map *map);
-int	is_in_strings(char c, char *str);
+int	is_in_string(char c, char *str);
 int	check_map(t_map *map);
 
 #endif
