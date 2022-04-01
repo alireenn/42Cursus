@@ -6,11 +6,21 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 20:44:12 by anovelli          #+#    #+#             */
-/*   Updated: 2022/03/26 14:32:47 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/01 18:30:02 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+void	check_char(char c, t_map *map)
+{
+	if (c == 'E')
+		map->exit++;
+	else if (c == 'P')
+		map->player++;
+	else if (c == 'C')
+		map->col++;
+}
 
 int	is_in_string(char c, char *str)
 {
@@ -59,7 +69,7 @@ int	check_borders(t_map *map)
 	{
 		while (map->mat[row][col])
 		{
-			if ((row == 0 || row == map->row) && map->mat[row] != '1')
+			if ((row == 0 || row == map->row))// && map->mat[row] != '1')
 				return (0);
 			if ((col == 0 || col == map->col) && map->mat[col][row] != '1')
 				return (0);
