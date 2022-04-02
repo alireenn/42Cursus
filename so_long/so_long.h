@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 13:26:12 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/02 11:32:06 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/02 12:05:58 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,13 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
-typedef struct s_vector
-{
-	int	x;
-	int	y;
-}	t_vector;
-
-typedef struct s_enemy
-{
-	t_vector		pos;
-	struct s_enemy	*next;
-}	t_enemy;
+typedef struct s_win{
+	void	*mlx;
+	void	*win;
+}	t_win;
 
 typedef struct s_map{
+	t_win	win;
 	char	**mat;
 	int		player;
 	int		x;
@@ -41,6 +35,7 @@ typedef struct s_map{
 	int		col;
 	int		coll;
 }	t_map;
+
 
 int		check_borders(t_map *map);
 int		is_in_string(char c, char *str);

@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 17:24:27 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/02 11:32:44 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/02 12:03:47 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	per_lo_spazio(int fd, t_map *map)
 	map->row = r;
 	map->mat = malloc(sizeof(char *) * r + 1);
 	if (!map->mat)
-		exit (printf("Uaaa\n"));
+		oh_perrors(map, 1);
 }
 
 int	open_map(char *av, t_map *map)
