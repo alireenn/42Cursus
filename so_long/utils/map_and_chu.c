@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 20:44:12 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/01 18:30:02 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/02 11:33:02 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	check_char(char c, t_map *map)
 	else if (c == 'P')
 		map->player++;
 	else if (c == 'C')
-		map->col++;
+		map->coll++;
 }
 
 int	is_in_string(char c, char *str)
@@ -46,6 +46,7 @@ int	check_map(t_map *map)
 		{	
 			if (!is_in_string(map->mat[row][col], "10CEPN\n"))
 				return (0);
+			check_char(map->mat[row][col], map);
 			col++;
 		}
 		if (row == 0)
@@ -64,18 +65,33 @@ int	check_borders(t_map *map)
 	int	col;
 
 	row = 0;
-	col = 0;
 	while (map->mat[row])
 	{
+		col = 0;
 		while (map->mat[row][col])
 		{
-			if ((row == 0 || row == map->row))// && map->mat[row] != '1')
+			// printf("Row: %d, Col: %d, char: %c\n", row, col, map->mat[row][col]);
+			if ((row == 0 || row == map->row) && map->mat[row][col] != '1')
 				return (0);
-			if ((col == 0 || col == map->col) && map->mat[col][row] != '1')
+			if ((col == 0 || col == map->col - 1) && map->mat[row][col] != '1')
 				return (0);
 			col++;
 		}
 		row++;
 	}
 	return (1);
+}
+
+// 1 & ultima riga == 1
+// 1 e ultima colonna == 1
+
+void	check_all(t_map *map)
+{
+	if (!check_map(map))
+		oh_errors("La mappa contiene elementi non esistenti.\n", map, 1);
+	if (!check_borders(map))
+		oh_errors("La Mappa non è chiusa.\n", map, 1);
+	if (map->coll < 1 || map->exit < 1 || map->player != 1)
+		oh_errors("La mappa non è valida.\n", map, 1);
+	printf("%d || %d || %d\n", map->coll, map->exit, map->player);
 }

@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 17:57:57 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/01 16:34:22 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/02 11:50:20 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@ int	main(int ac, char **av)
 {
 	t_map	map;
 	// void	*mlx = 0;
-	// void	*mlx_win;
-
+	// void	*mlx_win;x
 	if (ac != 2)
-		return (0);
+		oh_errors("Uso corretto: ./so_long <mappa>", &map, 0);
 	open_map(av[1], &map);
+	check_all(&map);
+	// printf("%d\n", check_borders(&map));
 	// map.mat = mlx_init();
 	// if (!map.mat)
 	// 	return (0);

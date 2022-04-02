@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 13:26:12 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/01 18:25:28 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/02 11:32:06 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_map{
 	int		exit;
 	int		row;
 	int		col;
+	int		coll;
 }	t_map;
 
 int		check_borders(t_map *map);
@@ -49,5 +50,9 @@ void	check_char(char c, t_map *map);
 void	per_lo_spazio(int fd, t_map *map);
 void	helper(char *new_a, int i);
 char	*get_next_line(int fd);
+void	oh_errors(char *str, t_map *map, int ci_sta);
+void	oh_perrors(t_map *map, int ci_sta);
+void	check_all(t_map *map);
+void	free_matrix(char **matrix);
 
 #endif

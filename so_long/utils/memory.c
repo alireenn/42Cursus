@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   memory.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/01 18:30:51 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/01 18:37:24 by anovelli         ###   ########.fr       */
+/*   Created: 2022/04/02 11:15:54 by anovelli          #+#    #+#             */
+/*   Updated: 2022/04/02 11:24:39 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-void	ft_putstr(char *str)
+void	free_matrix(char **matrix)
 {
-	while (str[i])
+	int	i;
+
+	i = 0;
+	while (matrix[i])
 	{
-		write(1, &str[i], 1)
+		free(matrix[i]);
 		i++;
 	}
-}
-
-void	oh_errors(void)
-{
-	ft_putstr("Error");
-	exit();
-}
-
-void	oh_perrors(void)
-{
-	ft_putstr("Error");
-	exit();
+	free(matrix);
 }

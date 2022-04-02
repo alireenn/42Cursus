@@ -3,10 +3,12 @@ NAME	=	so_long
 CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror -g
 
-SRC	=	so_long.c 			\
-		utils/map_and_chu.c \
-		map/fileread.c 		\
-		utils/get_next_line.c
+SRC	=	so_long.c 				\
+		map/fileread.c 			\
+		utils/map_and_chu.c		\
+		utils/get_next_line.c	\
+		utils/errors.c			\
+		utils/memory.c 				\
 
 OBJ	=	$(SRC:.c=.o)
 

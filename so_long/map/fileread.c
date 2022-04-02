@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 17:24:27 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/01 18:30:14 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/02 11:32:44 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,14 @@ int	open_map(char *av, t_map *map)
 	int		fd;
 	int		i;
 	char	*s;
-
 	fd = open(av, O_RDONLY);
 	if (fd == -1)
-		return (0);
+		oh_perrors(map, 0);
 	per_lo_spazio(fd, map);
 	close(fd);
 	fd = open(av, O_RDONLY);
 	if (fd == -1)
-		return (0);
+		oh_perrors(map, 0);
 	i = -1;
 	s = get_next_line(fd);
 	while (s)
