@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 13:26:12 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/05 14:39:40 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/05 16:14:26 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,28 @@ typedef struct s_win{
 	void	*win;
 }	t_win;
 
+typedef struct s_player
+{
+	void	morte1;
+	void	morte2;
+	void	morte3;
+	void	morte4;
+	void	morte5;
+	void	player1;
+	void	player2;
+
+}	t_player;
+
 typedef struct s_map{
-	t_win	win;
-	char	**mat;
-	int		player;
-	int		x;
-	int		y;
-	int		exit;
-	int		row;
-	int		col;
-	int		coll;
+	t_win			win;
+	char			**mat;
+	t_player		player;
+	int				x;
+	int				y;
+	int				exit;
+	int				row;
+	int				col;
+	int				coll;
 }	t_map;
 
 int		check_borders(t_map *map);
