@@ -8,7 +8,8 @@ SRC	=	so_long.c 				\
 		utils/map_and_chu.c		\
 		utils/get_next_line.c	\
 		utils/errors.c			\
-		utils/memory.c 				\
+		utils/memory.c 			\
+		images.c
 
 OBJ	=	$(SRC:.c=.o)
 

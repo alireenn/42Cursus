@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 13:26:12 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/05 16:14:26 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/05 17:29:10 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,35 +18,40 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-#include "mlx/mlx.h"
+# include <mlx.h>
 
 typedef struct s_win{
 	void	*mlx;
 	void	*win;
 }	t_win;
 
-typedef struct s_player
-{
-	void	morte1;
-	void	morte2;
-	void	morte3;
-	void	morte4;
-	void	morte5;
-	void	player1;
-	void	player2;
+typedef struct s_player{
+	void	*morte1;
+	void	*morte2;
+	void	*morte3;
+	void	*morte4;
+	void	*morte5;
+	void	*player1;
+	void	*player2;
+	void	*enemy1;
+	void	*enemy2;
+	void	*exit2;
+	void	*exit1;
 
 }	t_player;
 
 typedef struct s_map{
-	t_win			win;
-	char			**mat;
-	t_player		player;
-	int				x;
-	int				y;
-	int				exit;
-	int				row;
-	int				col;
-	int				coll;
+	t_win		win;
+	char		**mat;
+	t_player	p;
+	void		*sfondo;
+	int			player;
+	int			x;
+	int			y;
+	int			exit;
+	int			row;
+	int			col;
+	int			coll;
 }	t_map;
 
 int		check_borders(t_map *map);
@@ -61,5 +66,7 @@ void	oh_errors(char *str, t_map *map, int ci_sta);
 void	oh_perrors(t_map *map, int ci_sta);
 void	check_all(t_map *map);
 void	free_matrix(char **matrix);
+int		close_windows(t_map *map);
+void	open_image(t_map *map);
 
 #endif
