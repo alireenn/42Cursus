@@ -6,29 +6,27 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 17:57:57 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/05 13:06:11 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/05 14:31:21 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>//"mlx/mlx.h"
 #include "so_long.h"
 
 int	main(int ac, char **av)
 {
 	t_map	map;
-	void	*mlx;
 	void	*win;
 
 	(void) av;
 	if (ac != 2)
 		oh_errors("Uso corretto: ./so_long <mappa>", &map, 0);
+	map.win.mlx = mlx_init();
+	if (!map.win.mlx)
+		return (printf("Cazzo\n"));
 	open_map(av[1], &map);
 	check_all(&map);
-	mlx = mlx_init();
-	if (!mlx)
-		return (printf("Cazzo\n"));
-	win = mlx_new_window(mlx, 6 * 64, 10 * 64, "So Long!");
-	mlx_loop(mlx);
+	win = mlx_new_window(map.win.mlx, map.row * 64, map.col * 64, "So Long!");
+	mlx_loop(map.win.mlx);
 	// printf("%d\n", check_borders(&map));
 	// map.mat = mlx_init();
 	// if (!map.mat)
