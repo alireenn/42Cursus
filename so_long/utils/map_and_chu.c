@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 20:44:12 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/02 11:33:02 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/04 18:46:08 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,11 @@ int	check_map(t_map *map)
 		{	
 			if (!is_in_string(map->mat[row][col], "10CEPN\n"))
 				return (0);
+			printf("%d || %d\n", row, col);
 			check_char(map->mat[row][col], map);
 			col++;
 		}
+		printf("\n");
 		if (row == 0)
 			map->col = col;
 		if (col != map->col)
@@ -83,7 +85,6 @@ int	check_borders(t_map *map)
 }
 
 // 1 & ultima riga == 1
-// 1 e ultima colonna == 1
 
 void	check_all(t_map *map)
 {
@@ -93,5 +94,4 @@ void	check_all(t_map *map)
 		oh_errors("La Mappa non è chiusa.\n", map, 1);
 	if (map->coll < 1 || map->exit < 1 || map->player != 1)
 		oh_errors("La mappa non è valida.\n", map, 1);
-	printf("%d || %d || %d\n", map->coll, map->exit, map->player);
 }

@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 13:26:12 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/02 12:05:58 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/04 18:07:06 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct s_map{
 	int		col;
 	int		coll;
 }	t_map;
-
 
 int		check_borders(t_map *map);
 int		is_in_string(char c, char *str);
