@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 13:26:12 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/05 14:15:15 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/05 14:39:40 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-#include <mlx.h>//"mlx/mlx.h"
+#include "mlx/mlx.h"
 
 typedef struct s_win{
 	void	*mlx;
