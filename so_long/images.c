@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 16:11:10 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/12 11:58:56 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/12 12:07:25 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,35 +27,14 @@ void	open_image(t_map *map)
 			"images/exitopen.xpm", &a, &b);
 	map->p.exit2 = mlx_xpm_file_to_image(map->win.mlx, \
 			"images/exitclose.xpm", &a, &b);
-	open_image2(map);
-	wall_to_screen(map);
-}
-
-void	open_image2(t_map *map)
-{
-	int	a;
-	int	b;
-
-	map->p.morte1 = mlx_xpm_file_to_image(map->win.mlx, \
-			"images/morte1.xpm", &a, &b);
-	map->p.morte2 = mlx_xpm_file_to_image(map->win.mlx, \
-			"images/morte2.xpm", &a, &b);
-	map->p.morte3 = mlx_xpm_file_to_image(map->win.mlx, \
-			"images/morte3.xpm", &a, &b);
-	map->p.morte4 = mlx_xpm_file_to_image(map->win.mlx, \
-			"images/morte4.xpm", &a, &b);
-	map->p.morte5 = mlx_xpm_file_to_image(map->win.mlx, \
-			"images/morte5.xpm", &a, &b);
 	map->p.me1 = mlx_xpm_file_to_image(map->win.mlx, \
-			"images/me1.xpm", &a, &b);
-	map->p.me2 = mlx_xpm_file_to_image(map->win.mlx, \
-			"images/me2.xpm", &a, &b);
+			"images/me.xpm", &a, &b);
 	map->p.enemy1 = mlx_xpm_file_to_image(map->win.mlx, \
 			"images/mecattiva1.xpm", &a, &b);
 	map->p.enemy2 = mlx_xpm_file_to_image(map->win.mlx, \
 			"images/mecattiva2.xpm", &a, &b);
+	wall_to_screen(map);
 }
-
 
 void	wall_to_screen(t_map *map)
 {
@@ -80,7 +59,7 @@ void	wall_to_screen(t_map *map)
 
 void	coin_to_screen(t_map *map)
 {
-		int	i;
+	int	i;
 	int	j;
 
 	i = 0;
@@ -101,7 +80,7 @@ void	coin_to_screen(t_map *map)
 
 void	exit_to_screen(t_map *map)
 {
-		int	i;
+	int	i;
 	int	j;
 
 	i = 0;
