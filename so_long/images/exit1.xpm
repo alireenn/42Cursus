@@ -199,7 +199,7 @@ static char *_cb7d6144799426fa4f6f77d3176d4ccaCkGqN8pZhGQZHM2_1[] = {
 "&X c white",
 "*X c white",
 "=X c white",
-"-X c white",
+"-X c None",
 ";X c white",
 ":X c white",
 ">X c white",

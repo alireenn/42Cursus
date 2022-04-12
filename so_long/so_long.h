@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 13:26:12 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/05 17:29:10 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/07 18:39:30 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,14 @@ typedef struct s_player{
 	void	*morte3;
 	void	*morte4;
 	void	*morte5;
-	void	*player1;
-	void	*player2;
+	void	*me1;
+	void	*me2;
 	void	*enemy1;
 	void	*enemy2;
 	void	*exit2;
 	void	*exit1;
-
+	void	*coll1;
+	void	*coll2;
 }	t_player;
 
 typedef struct s_map{
@@ -68,5 +69,9 @@ void	check_all(t_map *map);
 void	free_matrix(char **matrix);
 int		close_windows(t_map *map);
 void	open_image(t_map *map);
+void	wall_to_screen(t_map *map);
+void	open_image2(t_map *map);
+void	coin_to_screen(t_map *map);
+void	exit_to_screen(t_map *map);
 
 #endif

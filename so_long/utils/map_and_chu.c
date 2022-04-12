@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 20:44:12 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/05 14:11:54 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/07 15:36:12 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,9 @@ int	check_map(t_map *map)
 		{	
 			if (!is_in_string(map->mat[row][col], "10CEPN\n"))
 				return (0);
-			// printf("%d || %d\n", row, col);
 			check_char(map->mat[row][col], map);
 			col++;
 		}
-		// printf("\n");
 		if (row == 0)
 			map->col = col;
 		if (col != map->col)
