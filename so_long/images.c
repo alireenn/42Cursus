@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 16:11:10 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/12 12:54:26 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/12 18:27:04 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	open_image(t_map *map)
 			"images/coll1.xpm", &a, &b);
 	map->p.coll2 = mlx_xpm_file_to_image(map->win.mlx, \
 			"images/coll2.xpm", &a, &b);
-	map->p.exit1 = mlx_xpm_file_to_image(map->win.mlx, \
-			"images/exitopen.xpm", &a, &b);
 	map->p.exit2 = mlx_xpm_file_to_image(map->win.mlx, \
+			"images/exitopen.xpm", &a, &b);
+	map->p.exit1 = mlx_xpm_file_to_image(map->win.mlx, \
 			"images/exitclose.xpm", &a, &b);
 	map->p.me1 = mlx_xpm_file_to_image(map->win.mlx, \
 			"images/me.xpm", &a, &b);
@@ -34,6 +34,8 @@ void	open_image(t_map *map)
 			"images/nemico1.xpm", &a, &b);
 	map->p.enemy2 = mlx_xpm_file_to_image(map->win.mlx, \
 			"images/nemico2.xpm", &a, &b);
+	map->p.pavimento = mlx_xpm_file_to_image(map->win.mlx, \
+			"images/pavimento.xpm", &a, &b);
 	sprite_to_screen(map);
 }
 
@@ -68,6 +70,29 @@ void	sprite_to_screen(t_map *map)
 		while (map->mat[i][j] != '\0')
 		{
 			set_image(map, i, j);
+			j++;
+		}
+		i++;
+	}
+}
+
+void	where_am_i(t_map *map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (map->mat[i])
+	{
+		j = 0;
+		while (map->mat[i][j])
+		{
+			if (map->mat[i][j] == 'P')
+			{
+				map->x = i;
+				map->y = j;
+				map->mat[i][j] = '0';
+			}
 			j++;
 		}
 		i++;

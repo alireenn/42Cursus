@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 13:26:12 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/12 14:52:37 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/12 18:22:57 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_player{
 	void	*exit1;
 	void	*coll1;
 	void	*coll2;
+	void	*pavimento;
 }	t_player;
 
 typedef struct s_map{
@@ -50,6 +51,7 @@ typedef struct s_map{
 	int			coll;
 	int			enemy_mv;
 	int			delay;
+	int			moves;
 }	t_map;
 
 typedef enum e_keys
@@ -63,8 +65,6 @@ typedef enum e_keys
 	K_DOWN = 125,
 	K_LEFT = 123,
 	K_RIGHT = 124,
-	ENTER_1 = 36,
-	ENTER_2 = 76,
 }	t_keys;
 
 typedef enum e_dir
@@ -97,4 +97,16 @@ void	enemy_loop(t_map *m);
 int		animation(t_map *map);
 int		command(int key, t_map *map);
 void	set_image(t_map *map, int i, int j);
+void	where_am_i(t_map *map);
+void	move_up(t_map *map);
+char	*ft_itoa(int nb);
+int		lenght(int nb, int base);
+void	ft_putchar(char c);
+void	ft_putstr(char *s);
+void	move_down(t_map *map);
+void	move_left(t_map *map);
+void	move_right(t_map *map);
+void	esc_porkodyo(t_map *map);
+void	esc_porkodyo_temp(t_map *map, char c, char x, int pos);
+void	print_moves(t_map *map);
 #endif

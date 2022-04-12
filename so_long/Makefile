@@ -3,15 +3,17 @@ NAME	=	so_long
 CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror -g
 
-SRC	=	so_long.c 				\
-		map/fileread.c 			\
-		utils/map_and_chu.c		\
-		utils/get_next_line.c	\
-		utils/errors.c			\
-		utils/memory.c 			\
-		images.c				\
-		utils/key_manager.c 	\
-		utils/enemy_mv.c 		\
+SRC	=	so_long.c 					\
+		map/fileread.c 				\
+		utils/map_and_chu.c			\
+		utils/get_next_line.c		\
+		utils/errors.c				\
+		utils/memory.c 				\
+		images.c					\
+		utils/key_manager.c 		\
+		utils/key_manager_helper.c 	\
+		utils/enemy_mv.c 			\
+		utils/int_utils.c 			\
 		
 OBJ	=	$(SRC:.c=.o)
 
@@ -31,6 +33,9 @@ $(NAME):	$(OBJ)
 			@(echo "\033[32mSO_LONG>> Compiled\033[0m")
 
 all:		$(NAME)
+
+norme:		
+		norminette $(SRC)
 
 clean:
 			make clean -C mlx
