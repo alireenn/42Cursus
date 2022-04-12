@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 20:44:12 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/07 15:36:12 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/12 14:59:17 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ int	check_borders(t_map *map)
 		col = 0;
 		while (map->mat[row][col])
 		{
-			// printf("Row: %d, Col: %d, char: %c\n", row, col, map->mat[row][col]);
 			if ((row == 0 || row == map->row) && map->mat[row][col] != '1')
 				return (0);
 			if ((col == 0 || col == map->col - 1) && map->mat[row][col] != '1')

@@ -9,8 +9,10 @@ SRC	=	so_long.c 				\
 		utils/get_next_line.c	\
 		utils/errors.c			\
 		utils/memory.c 			\
-		images.c
-
+		images.c				\
+		utils/key_manager.c 	\
+		utils/enemy_mv.c 		\
+		
 OBJ	=	$(SRC:.c=.o)
 
 %.o: %.c
