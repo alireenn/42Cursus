@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 13:26:12 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/12 18:22:57 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/12 18:55:51 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_map{
 	int			enemy_mv;
 	int			delay;
 	int			moves;
+	int			can_print;
 }	t_map;
 
 typedef enum e_keys

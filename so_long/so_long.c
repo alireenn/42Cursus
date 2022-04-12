@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 17:57:57 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/12 17:35:44 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/12 19:36:18 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(int ac, char **av)
 		map.win.mlx = mlx_init();
 	if (!map.win.mlx)
 		oh_perrors(&map, 0);
+	map.player = 0;
 	open_map(av[1], &map);
 	check_all(&map);
 	map.win.win = mlx_new_window(map.win.mlx, map.col * 64, \
