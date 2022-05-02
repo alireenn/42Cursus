@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 13:26:12 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/12 18:55:51 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/14 12:26:57 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,4 +110,5 @@ void	move_right(t_map *map);
 void	esc_porkodyo(t_map *map);
 void	esc_porkodyo_temp(t_map *map, char c, char x, int pos);
 void	print_moves(t_map *map);
+int		control(char *filename);
 #endif

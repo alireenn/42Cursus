@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 12:58:23 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/12 19:41:13 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/14 13:16:04 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,15 @@ void	esc_porkodyo(t_map *map)
 void	esc_porkodyo_temp(t_map *map, char c, char x, int pos)
 {
 	if (c == 'N')
+	{
+		ft_putstr("Hai perso\n");
 		esc_porkodyo(map);
+	}
 	if (c == 'E' && map->coll == 0)
+	{
+		ft_putstr("Hai vinto\n");
 		esc_porkodyo(map);
+	}
 	if (c == 'E' && map->coll != 0)
 	{
 		if (x == 'x' && pos)

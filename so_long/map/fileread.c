@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 17:24:27 by anovelli          #+#    #+#             */
-/*   Updated: 2022/04/12 17:33:49 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/04/14 12:38:25 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,18 @@ int	open_map(char *av, t_map *map)
 	if (!map->mat[0])
 		oh_perrors(map, 1);
 	return (1);
+}
+
+int	control(char *filename)
+{
+	int	len;
+
+	len = 0;
+	while (filename[len])
+		len++;
+	if (filename[len - 4] != '.' || filename[len - 3] != 'b'
+		|| filename[len - 2] != 'e' || filename[len - 1] != 'r')
+		return (0);
+	else
+		return (1);
 }
