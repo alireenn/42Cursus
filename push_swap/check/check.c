@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:05:15 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/02 18:13:23 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/09 10:28:52 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 bool	is_ok(char ac)
 {
-	if (ac < 30 || ac > 39 || ac != '+' || ac != '-' || ac != ' ')
-		return (false);
-	return (true);
+	if (ac >= 30 || ac <= 39 || ac == '+' || ac == '-' || ac == ' ')
+		return (true);
+	return (false);
 }
 
 bool	is_number(char ac)
 {
-	if (ac < 30 || ac > 39 || ac != '+' || ac != '-')
-		return (false);
-	return (true);
+	if (ac >= 30 || ac <= 39 || ac == '+' || ac == '-')
+		return (true);
+	return (false);
 }
 
 bool	is_string(char **ac)

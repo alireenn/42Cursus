@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 15:10:58 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/02 17:54:46 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/09 11:20:15 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,11 @@ typedef struct s_stacks{
 			/*rules*/
 //rules.c
 void	sa(t_stacks *stacks);
-void	create_a(void);
-void	create_b(void);
-void	finish(t_stacks *point);
+
+//fill_stacks.c
+char	**ft_split(const char *s, char c);
+size_t	get_word(const char *s, char c);
+void	fill_stack(int av, char **ac);
 
 			/*checks*/
 //check.c

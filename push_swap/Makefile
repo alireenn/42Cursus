@@ -6,6 +6,7 @@ CFLAGS	=	-Wall -Wextra -Werror -g
 SRC	=	push_swap.c			\
 		check/check.c 		\
 		rules/rules.c 		\
+		rules/fill_stack.c  \
 		
 OBJ	=	$(SRC:.c=.o)
 
