@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 15:49:22 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/09 16:19:44 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/09 17:55:55 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,3 +43,31 @@ int	ft_atoi(const char *str)
 	}
 	return (res);
 }
+
+void	*ft_lstnew(long long int content)
+{
+	t_node	*new;
+
+	new = (t_node *)malloc(sizeof(t_node *));
+	if (!new)
+		return (NULL);
+	new->n = content;
+	new->next = NULL;
+	new->head = new;
+	return (new);
+}
+
+void	ft_lstadd(t_node **lst)
+{
+	t_node	*new;
+
+	new = (t_node *)malloc(sizeof(t_node *));
+	if (lst)
+	{
+		if (*lst)
+			(*lst)->next = new;
+			new->head = (*lst)->head;
+			new->next = NULL;
+	}
+}
+

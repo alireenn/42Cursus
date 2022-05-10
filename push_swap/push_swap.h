@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 15:10:58 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/09 16:20:29 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/09 17:51:19 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_stacks{
 void	sa(t_stacks *stacks);
 
 //fill_stacks.c
-void	fill_stack(char **ac);
+void	fill_stack(char **ac, t_stacks *stack_a);
 int		find_space(char *str, char c);
 int		count_space(char *str);
 int		fill_helper(char *str, int index, t_stacks *stack_a);
@@ -56,6 +56,8 @@ int		ft_strlen(const char *str);
 //int_utils.c
 int		ft_atoi(const char *str);
 int		is_int(int n);
+void	*ft_lstnew(long long int content);
+void	ft_lstadd(t_node **lst);
 
 //utils_string.c
 int		ft_putchar(char c, int fd);

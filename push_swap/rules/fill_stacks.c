@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:16:04 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/09 16:20:58 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/09 17:52:39 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,14 @@
 
 int	find_space(char *str, char c)
 {
-	while (*str)
+	int	i;
+
+	i = 0;
+	while (str[i])
 	{
-		if (*str == c)
+		if (str[i] == c)
 			return (1);
+		i++;
 	}
 	return (0);
 }
@@ -65,25 +69,34 @@ int	fill_helper(char *str, int index, t_stacks *stack_a)
 	return (index);
 }
 
-void	fill_stack(char **ac)
+void	fill_stack(char **ac, t_stacks *stack_a)
 {
 	int				i;
 	int				j;
-	t_stacks		*stack_a;
+	t_node			*a;
 	long long int	temp;
 
-	stack_a = malloc(sizeof(t_stacks));
 	i = 1;
 	j = 0;
-	while (ac[i])
+	temp = ft_atoi(ac[i]);
+	a = ft_lstnew(temp);
+	stack_a->a = a;
+	while (ac[i] && stack_a->a)
 	{
-		if (find_space(ac[i], ' '))
+		if (find_space(ac[i], ' ')) //qua
 			j = fill_helper(ac[i], j, stack_a);
 		else
 		{
 			temp = ft_atoi(ac[i]);
 			if (is_int(temp))
+			{
+				ft_lstadd(&(stack_a->a));
+				stack_a->a = stack_a->a->next;
+				stack_a->a->n = temp;
+			}
 			j++;
-		}	
+		}
+		i++;
 	}
+	stack_a->a = stack_a->a->head;
 }
