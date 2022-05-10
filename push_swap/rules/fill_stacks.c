@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:16:04 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/09 17:52:39 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/10 17:36:17 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,14 @@ void	fill_stack(char **ac, t_stacks *stack_a)
 {
 	int				i;
 	int				j;
-	t_node			*a;
 	long long int	temp;
+	t_node 	*templist;
 
 	i = 1;
 	j = 0;
 	temp = ft_atoi(ac[i]);
-	a = ft_lstnew(temp);
-	stack_a->a = a;
+	stack_a->a = ft_lstnew(temp);
+	templist = stack_a->a;
 	while (ac[i] && stack_a->a)
 	{
 		if (find_space(ac[i], ' ')) //qua
@@ -88,15 +88,16 @@ void	fill_stack(char **ac, t_stacks *stack_a)
 		else
 		{
 			temp = ft_atoi(ac[i]);
-			if (is_int(temp))
+			if (is_int((int)temp))
 			{
 				ft_lstadd(&(stack_a->a));
-				stack_a->a = stack_a->a->next;
-				stack_a->a->n = temp;
+				stack_a->a->n = (int)temp;
+				printf("sono in fill stack %d\n", stack_a->a->n);
 			}
 			j++;
 		}
+		stack_a->a = stack_a->a->next;
 		i++;
 	}
-	stack_a->a = stack_a->a->head;
+	stack_a->a = templist;
 }

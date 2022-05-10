@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 15:49:22 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/09 17:55:55 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/10 17:28:07 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,29 +19,45 @@ int	is_int(int n)
 	return (1);
 }
 
-int	ft_atoi(const char *str)
+int	atoi_helper(char *str)
 {
-	int	i;
 	int	sign;
-	int	res;
 
-	res = 0;
 	sign = 1;
-	i = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == 32))
-		i++;
-	if (str[i] == 43 || str[i] == 45)
+	if (*str == '-')
+		sign *= -1;
+	if (*str == '-' || *str == '+')
+		str++;
+	return (sign);
+}
+
+long long int	ft_atoi(const char *str)
+{
+	long long int	sign;
+	long long int	result;
+	int				count;
+
+	count = 0;
+	while (is_in_string(*(char *) str, "\t\n\v\f\r "))
+		str++;
+	sign = atoi_helper((char *) str);
+	while (*str == '-' || *str == '+')
+		str++;
+	if (!*str)
+		return (__LONG_MAX__);
+	result = 0;
+	while (*str >= '0' && *str <= '9')
 	{
-		if (str[i] == 45)
-			sign = -1;
-		i++;
+		if ((count > 10 && sign != -1) || (count > 11 && sign == -1))
+			return (__LONG_MAX__);
+		if (result * 10 < 0)
+			return (-1);
+		result *= 10;
+		result += *str - '0';
+		str++;
+		count++;
 	}
-	while (str[i] >= 48 && str[i] <= 57)
-	{
-		res = res * 10 + (str[i] - '0') * sign;
-		i++;
-	}
-	return (res);
+	return (result * sign);
 }
 
 void	*ft_lstnew(long long int content)
@@ -53,7 +69,6 @@ void	*ft_lstnew(long long int content)
 		return (NULL);
 	new->n = content;
 	new->next = NULL;
-	new->head = new;
 	return (new);
 }
 
@@ -66,7 +81,6 @@ void	ft_lstadd(t_node **lst)
 	{
 		if (*lst)
 			(*lst)->next = new;
-			new->head = (*lst)->head;
 			new->next = NULL;
 	}
 }
