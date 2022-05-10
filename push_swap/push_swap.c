@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 17:09:05 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/09 17:56:41 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/10 09:19:29 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	main(int av, char **ac)
 		if (check(ac) == false)
 			write(2, "Error\n", 6);
 	fill_stack(ac, stack_a);
+
+	printf("ciao");
 	if (stack_a->isok == 0)
 		write(2, "Error\n", 6);
 	sa(stack_a);
