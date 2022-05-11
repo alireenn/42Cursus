@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 15:49:22 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/10 17:28:07 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/11 10:11:01 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,3 @@ void	ft_lstadd(t_node **lst)
 			new->next = NULL;
 	}
 }
-
