@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 11:03:15 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/11 12:20:26 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/11 13:03:27 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	ft_ra(t_stacks	*stacks)
 	printf("ciao\n");
 	while (last->a->next != NULL)
 		first->a = first->a->next;
-		last = 
-	stacks->a->next = temp;
+	last = first->a;
+	stacks->a->next = last;
 	//stacks->a->n = 10;
 	//stacks->a->next->next = NULL;
-	temp->next = NULL;
+	last->next = NULL;
 }
