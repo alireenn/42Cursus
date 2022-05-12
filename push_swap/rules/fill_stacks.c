@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:16:04 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/11 12:02:20 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/12 15:36:28 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,10 @@ void	fill_stack(int av, char **ac, t_stacks *stack_a)
 			temp = ft_atoi(ac[i]);
 			if (is_int((int)temp))
 			{
-				if(i < av - 1)
+				if (i < av - 1)
 					ft_lstadd(&(stack_a->a));
 				if (stack_a->a)
 				stack_a->a->n = (int)temp;
-				printf("sono in fill stack %d\n", stack_a->a->n);
 			}
 			j++;
 		}

@@ -7,6 +7,7 @@ SRC	=	push_swap.c				\
 		check/check.c			\
 		rules/rules.c			\
 		rules/rules2.c			\
+		rules/rules3.c			\
 		rules/fill_stacks.c		\
 		utils/ft_split.c		\
 		utils/int_utils.c 		\

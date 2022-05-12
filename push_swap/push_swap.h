@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 15:10:58 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/11 11:59:09 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/12 16:02:24 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,13 @@ void			ft_ss(t_stacks *stacks);
 void			ft_pa(t_stacks *stacks);
 void			ft_pb(t_stacks *stacks);
 //rules2.c
-void			ft_ra(t_stacks	*stacks);
+void			ft_rra(t_stacks	*stacks);
+void			ft_rrb(t_stacks	*stacks);
+void			ft_ra(t_stacks *stacks);
+void			ft_rb(t_stacks *stacks);
+void			ft_rrr(t_stacks *stacks);
+//rules3.c
+void			rr(t_stacks *stacks);
 
 //fill_stacks.c
 void			fill_stack(int av, char **ac, t_stacks *stack_a);

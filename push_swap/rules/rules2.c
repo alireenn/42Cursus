@@ -6,28 +6,69 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 11:03:15 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/11 13:03:27 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/12 16:07:17 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-//ra (rotate a): Shift up all elements of stack a by 1.
-//The first element becomes the last one.
 
-void	ft_ra(t_stacks	*stacks)
+void	ft_rra(t_stacks	*stacks)
 {
-	t_stacks	*first;
-	t_stacks	*last;
+	t_node	*first;
+	t_node	*last;
 
-	//temp = ft_lstnew(0);
-	first= stacks->a;
+	first = stacks->a;
 	last = stacks->a;
-	printf("ciao\n");
-	while (last->a->next != NULL)
-		first->a = first->a->next;
-	last = first->a;
-	stacks->a->next = last;
-	//stacks->a->n = 10;
-	//stacks->a->next->next = NULL;
-	last->next = NULL;
+	while (last->next != NULL)
+		last = last->next;
+	stacks->a = last;
+	stacks->a->next = first;
+	write(1, "rra\n", 4);
+}
+
+void	ft_rrb(t_stacks	*stacks)
+{
+	t_node	*first;
+	t_node	*last;
+
+	first = stacks->b;
+	last = stacks->b;
+	while (last->next != NULL)
+		last = last->next;
+	stacks->b = last;
+	stacks->b->next = first;
+	write(1, "rrb\n", 4);
+}
+
+void	ft_ra(t_stacks *stacks)
+{
+	t_node	*first;
+
+	first = stacks->a;
+	while (stacks->a->next != NULL)
+	{
+		stacks->a = stacks->a->next;
+	}
+	stacks->a->next = first;
+	write(1, "ra\n", 3);
+}
+
+void	ft_rb(t_stacks *stacks)
+{
+	t_node	*first;
+
+	first = stacks->b;
+	while (stacks->b->next != NULL)
+	{
+		stacks->b = stacks->b->next;
+	}
+	stacks->b->next = first;
+	write(1, "rb\n", 3);
+}
+
+void	ft_rrr(t_stacks *stacks)
+{
+	ft_rra(stacks);
+	ft_rrb(stacks);
+	write(1, "rrr\n", 4);
 }

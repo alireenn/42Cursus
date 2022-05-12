@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 15:10:14 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/11 11:01:52 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/12 16:03:53 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	ft_pa(t_stacks *stacks)
 		new = stacks->b;
 		new->next = stacks->a;
 	}
+	write(1, "pa\n", 3);
 }
 
 void	ft_pb(t_stacks *stacks)
@@ -66,4 +67,5 @@ void	ft_pb(t_stacks *stacks)
 		new = stacks->a;
 		new->next = stacks->b;
 	}
+	write(1, "pb\n", 3);
 }

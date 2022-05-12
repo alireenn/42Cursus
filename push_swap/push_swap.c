@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 17:09:05 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/11 12:02:01 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/12 16:06:59 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	main(int av, char **ac)
 	t_stacks	*temp;	
 
 	stack_a = malloc(sizeof(t_stacks) * av);
-	temp = stack_a;
 	stack_a->isok = 1;
 	if (!stack_a)
 		write(2, "Error: Malloc.\n", 27);
@@ -30,12 +29,13 @@ int	main(int av, char **ac)
 	fill_stack(av, ac, stack_a);
 	if (stack_a->isok == 0)
 		write(2, "Error\n", 6);
-	ft_sa(stack_a);
-	//ft_ss(stack_a);
-	ft_ra(stack_a);
-	while (temp->a)
-	{
-		printf("%d pollo \n", stack_a->a->n);
-		temp->a = temp->a->next;
-	}
+	// ft_sa(stack_a);
+	// ft_ss(stack_a);		//SE LI FACCIO INSIEME VA IN SEGFAOULT
+	// ft_ra(stack_a);
+	temp = stack_a;
+
+	printf("1 - %d\n", temp->a->n);
+	printf("2 - %d\n", temp->a->next->n);
+	printf("3 - %d\n", temp->a->next->next->n);
+	printf("4 - %d\n", temp->a->next->next->next->n);
 }
