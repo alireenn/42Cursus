@@ -6,69 +6,97 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 11:03:15 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/12 16:07:17 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/17 16:15:45 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_rra(t_stacks	*stacks)
+void	swap_b(t_stack *stack, bool can_write)
 {
-	t_node	*first;
-	t_node	*last;
+	int	tmp;
 
-	first = stacks->a;
-	last = stacks->a;
-	while (last->next != NULL)
-		last = last->next;
-	stacks->a = last;
-	stacks->a->next = first;
-	write(1, "rra\n", 4);
-}
-
-void	ft_rrb(t_stacks	*stacks)
-{
-	t_node	*first;
-	t_node	*last;
-
-	first = stacks->b;
-	last = stacks->b;
-	while (last->next != NULL)
-		last = last->next;
-	stacks->b = last;
-	stacks->b->next = first;
-	write(1, "rrb\n", 4);
-}
-
-void	ft_ra(t_stacks *stacks)
-{
-	t_node	*first;
-
-	first = stacks->a;
-	while (stacks->a->next != NULL)
+	if (stack->b_size >= 2)
 	{
-		stacks->a = stacks->a->next;
+		tmp = stack->b[1];
+		stack->b[1] = stack->b[0];
+		stack->b[0] = tmp;
 	}
-	stacks->a->next = first;
-	write(1, "ra\n", 3);
+	if (can_write)
+		ft_putstr("sb\n", 1);
 }
 
-void	ft_rb(t_stacks *stacks)
+void	rotate_b(t_stack *stack, bool can_write)
 {
-	t_node	*first;
+	int	tmp;
+	int	i;
 
-	first = stacks->b;
-	while (stacks->b->next != NULL)
+	i = 0;
+	tmp = stack->b[0];
+	while (i < stack->b_size)
 	{
-		stacks->b = stacks->b->next;
+		stack->b[i] = stack->b[i + 1];
+		i++;
 	}
-	stacks->b->next = first;
-	write(1, "rb\n", 3);
+	stack->b[stack->b_size - 1] = tmp;
+	if (can_write)
+		ft_putstr("rb\n", 1);
 }
 
-void	ft_rrr(t_stacks *stacks)
+void	reverse_rotate_b(t_stack *stack, bool can_write)
 {
-	ft_rra(stacks);
-	ft_rrb(stacks);
-	write(1, "rrr\n", 4);
+	int	tmp;
+	int	i;
+
+	i = stack->b_size - 1;
+	tmp = stack->b[stack->b_size - 1];
+	while (i > 0)
+	{
+		stack->b[i] = stack->b[i - 1];
+		i--;
+	}
+	stack->b[0] = tmp;
+	if (can_write)
+		ft_putstr("rrb\n", 1);
+}
+
+void	push_b_helper(t_stack *stack, int *tmp)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack->b_size - 1)
+	{
+		stack->b[i + 1] = tmp[i];
+		i++;
+	}
+	i = 0;
+	while (i < stack->a_size - 1)
+	{
+		stack->a[i] = stack->a[i + 1];
+		i++;
+	}
+}
+
+void	push_b(t_stack *stack, bool can_write)
+{
+	int	*tmp;
+	int	i;
+
+	i = 0;
+	if (!(stack->a_size))
+		return ;
+	tmp = malloc(stack->b_size * sizeof(int));
+	while (i < stack->b_size)
+	{
+		tmp[i] = stack->b[i];
+		i++;
+	}
+	stack->b[0] = stack->a[0];
+	stack->b_size++;
+	push_b_helper(stack, tmp);
+	free(tmp);
+	stack->a_size--;
+	if (can_write)
+		ft_putstr("pb\n", 1);
 }

@@ -6,66 +6,97 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 15:10:14 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/12 16:03:53 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/17 16:15:35 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_sa(t_stacks *stack_a)
+void	swap_a(t_stack *stack, bool can_write)
 {
-	t_node	*temp;
-	t_node	*temp2;
+	int	tmp;
 
-	temp = stack_a->a;
-	temp2 = stack_a->a->next;
-	stack_a->a = temp2;
-	temp->next = temp2->next;
-	temp2->next = temp;
-	write(1, "sa\n", 3);
-}
-
-void	ft_sb(t_stacks *stack_b)
-{
-	t_node	*temp;
-	t_node	*temp2;
-
-	temp = stack_b->b;
-	temp2 = stack_b->b->next;
-	stack_b->b = temp2;
-	temp->next = temp2->next;
-	temp2->next = temp;
-	write(1, "sb\n", 3);
-}
-
-void	ft_ss(t_stacks *stacks)
-{
-	ft_sa(stacks);
-	ft_sb(stacks);
-}
-
-void	ft_pa(t_stacks *stacks)
-{
-	t_node	*new;
-
-	if (stacks->b != NULL)
+	if (stack->a_size >= 2)
 	{
-		new = malloc(sizeof(t_node));
-		new = stacks->b;
-		new->next = stacks->a;
+		tmp = stack->a[1];
+		stack->a[1] = stack->a[0];
+		stack->a[0] = tmp;
 	}
-	write(1, "pa\n", 3);
+	if (can_write)
+		ft_putstr("sa\n", 1);
 }
 
-void	ft_pb(t_stacks *stacks)
+void	rotate_a(t_stack *stack, bool can_write)
 {
-	t_node	*new;
+	int		tmp;
+	int		i;
 
-	if (stacks->a != NULL)
+	i = 0;
+	tmp = stack->a[0];
+	while (i < stack->a_size - 1)
 	{
-		new = malloc(sizeof(t_node));
-		new = stacks->a;
-		new->next = stacks->b;
+		stack->a[i] = stack->a[i + 1];
+		i++;
 	}
-	write(1, "pb\n", 3);
+	stack->a[stack->a_size - 1] = tmp;
+	if (can_write)
+		ft_putstr("ra\n", 1);
+}
+
+void	reverse_rotate_a(t_stack *stack, bool can_write)
+{
+	int	tmp;
+	int	i;
+
+	i = stack->a_size - 1;
+	tmp = stack->a[stack->a_size - 1];
+	while (i > 0)
+	{
+		stack->a[i] = stack->a[i - 1];
+		i--;
+	}
+	stack->a[0] = tmp;
+	if (can_write)
+		ft_putstr("rra\n", 1);
+}
+
+void	push_a_helper(t_stack *stack, int *tmp)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack->a_size - 1)
+	{
+		stack->a[i + 1] = tmp[i];
+		i++;
+	}
+	i = 0;
+	while (i < stack->b_size - 1)
+	{
+		stack->b[i] = stack->b[i + 1];
+		i++;
+	}
+}
+
+void	push_a(t_stack *stack, bool can_write)
+{
+	int	*tmp;
+	int	i;
+
+	if (!(stack->b_size))
+		return ;
+	i = 0;
+	tmp = malloc(stack->a_size * sizeof(int));
+	while (i < stack->a_size)
+	{
+		tmp[i] = stack->a[i];
+		i++;
+	}
+	stack->a[0] = stack->b[0];
+	stack->a_size++;
+	push_a_helper(stack, tmp);
+	free (tmp);
+	stack->b_size--;
+	if (can_write)
+		ft_putstr("pa\n", 1);
 }

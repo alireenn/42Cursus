@@ -6,12 +6,12 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:16:04 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/12 15:36:28 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/17 16:13:09 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
+/*
 int	find_space(char *str, char c)
 {
 	int	i;
@@ -102,3 +102,4 @@ void	fill_stack(int av, char **ac, t_stacks *stack_a)
 	}
 	stack_a->a = templist;
 }
+*/
