@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 17:09:05 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/17 16:19:55 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/17 17:56:56 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int av, char **ac)
 	// 		write(2, "Error\n", 6);
 	stack.a_size = count_numbers(ac);
 	array_fill(ac, &stack);
-	sort_three(&stack);
+	choose_alg(&stack);
 	for (int i = 0; i < stack.a_size; i++)
 		printf("%d ", stack.a[i]);
 }

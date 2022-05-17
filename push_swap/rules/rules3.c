@@ -6,32 +6,32 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 16:01:12 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/17 16:05:21 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/17 17:51:52 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	reverse_rotate_ab(t_stack *stack, bool can_write)
+void	ft_rrab(t_stack *stack, bool can_write)
 {
-	reverse_rotate_b(stack, false);
-	reverse_rotate_a(stack, false);
+	ft_rrb(stack, false);
+	ft_rra(stack, false);
 	if (can_write)
 		ft_putstr("rrr\n", 1);
 }
 
-void	rotate_ab(t_stack *stack, bool can_write)
+void	ft_rab(t_stack *stack, bool can_write)
 {
-	rotate_a(stack, false);
-	rotate_b(stack, false);
+	ft_ra(stack, false);
+	ft_rb(stack, false);
 	if (can_write)
 		ft_putstr("rr\n", 1);
 }
 
-void	swap_ab(t_stack *stack, bool can_write)
+void	ft_sab(t_stack *stack, bool can_write)
 {
-	swap_b(stack, false);
-	swap_a(stack, false);
+	ft_sa(stack, false);
+	ft_sb(stack, false);
 	if (can_write)
 		ft_putstr("ss\n", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 15:10:58 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/17 16:21:10 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/17 17:57:24 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,49 @@ typedef struct s_stack
 // }	t_stacks;
 					/*	check	*/
 //check.c
-
+bool			is_ok(char ac);
+bool			is_number(char ac);
+bool			is_string(char **ac);
+bool			check(char **ac);
+					/*order*/
+//small_swap.c
+void			decrescent_algorithm(t_stack *stack);
+void			sort_three(t_stack *stack);
+void			choose_alg(t_stack *stack);
+					/*rules*/
+void			array_fill(char **argv, t_stack *stack);
+int				fill_helper(t_stack *stack, int k, char *str);
+//rules.c
+void			ft_sa(t_stack *stack, bool can_write);
+void			ft_ra(t_stack *stack, bool can_write);
+void			ft_rra(t_stack *stack, bool can_write);
+void			ft_pa_helper(t_stack *stack, int *tmp);
+void			ft_pa(t_stack *stack, bool can_write);
+//rules2.c
+void			ft_sb(t_stack *stack, bool can_write);
+void			ft_rb(t_stack *stack, bool can_write);
+void			ft_rrb(t_stack *stack, bool can_write);
+void			ft_pb_helper(t_stack *stack, int *tmp);
+void			ft_pb(t_stack *stack, bool can_write);
+//rules3.c
+void			ft_rrab(t_stack *stack, bool can_write);
+void			ft_rab(t_stack *stack, bool can_write);
+void			ft_sab(t_stack *stack, bool can_write);
+			/*utils*/
+//ft_split.c
+int				ft_strlen(const char *str);
+size_t			get_word(const char *s, char c);
+char			**ft_split(const char *s, char c);
+//int_utils.c
+void			free_matrix(char **matrix);
+bool			is_int(long long int nb);
+int				atoi_helper(char *str);
+long long int	ft_atoi(const char *str);
+int				count_numbers(char **argv);
+//utils_string.c
+int				ft_putchar(char c, int fd);
+int				ft_putstr(char *s, int fd);
+bool			is_in_string(char c, char *s);
+char			*ft_substr(char const *s, unsigned int start, size_t len);
+char			*ft_strdup(const char *src);
 #endif

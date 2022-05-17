@@ -6,13 +6,13 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 15:10:14 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/17 16:15:35 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/17 17:35:16 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	swap_a(t_stack *stack, bool can_write)
+void	ft_sa(t_stack *stack, bool can_write)
 {
 	int	tmp;
 
@@ -26,7 +26,7 @@ void	swap_a(t_stack *stack, bool can_write)
 		ft_putstr("sa\n", 1);
 }
 
-void	rotate_a(t_stack *stack, bool can_write)
+void	ft_ra(t_stack *stack, bool can_write)
 {
 	int		tmp;
 	int		i;
@@ -43,7 +43,7 @@ void	rotate_a(t_stack *stack, bool can_write)
 		ft_putstr("ra\n", 1);
 }
 
-void	reverse_rotate_a(t_stack *stack, bool can_write)
+void	ft_rra(t_stack *stack, bool can_write)
 {
 	int	tmp;
 	int	i;
@@ -60,7 +60,7 @@ void	reverse_rotate_a(t_stack *stack, bool can_write)
 		ft_putstr("rra\n", 1);
 }
 
-void	push_a_helper(t_stack *stack, int *tmp)
+void	ft_pa_helper(t_stack *stack, int *tmp)
 {
 	int	i;
 
@@ -78,7 +78,7 @@ void	push_a_helper(t_stack *stack, int *tmp)
 	}
 }
 
-void	push_a(t_stack *stack, bool can_write)
+void	ft_pa(t_stack *stack, bool can_write)
 {
 	int	*tmp;
 	int	i;
@@ -94,7 +94,7 @@ void	push_a(t_stack *stack, bool can_write)
 	}
 	stack->a[0] = stack->b[0];
 	stack->a_size++;
-	push_a_helper(stack, tmp);
+	ft_pa_helper(stack, tmp);
 	free (tmp);
 	stack->b_size--;
 	if (can_write)

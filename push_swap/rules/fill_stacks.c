@@ -6,100 +6,62 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:16:04 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/17 16:13:09 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/17 17:04:28 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-/*
-int	find_space(char *str, char c)
+
+int	fill_helper(t_stack *stack, int k, char *str)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == c)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-int	count_space(char *str)
-{
-	int	i;
-	int	count;
-
-	count = 0;
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == ' ')
-			count++;
-		i++;
-	}
-	return (count);
-}
-
-int	fill_helper(char *str, int index, t_stacks *stack_a)
-{
-	int		i;
-	char	**split;
-	int		count;
-	int		temp;
-
-	i = 0;
-	split = ft_split(str, ' ');
-	count = count_space(str);
-	while (i < count)
-	{
-		temp = ft_atoi(&str[i]);
-		if (is_int(temp))
-			stack_a->a->n = temp;
-		else
-		{
-			write(2, "Error\n", 6);
-			stack_a->isok = 0;
-		}
-		i++;
-		stack_a->a = stack_a->a->next;
-		index++;
-	}
-	return (index);
-}
-
-void	fill_stack(int av, char **ac, t_stacks *stack_a)
-{
-	int				i;
 	int				j;
+	int				count;
+	char			**split;
 	long long int	temp;
-	t_node			*templist;
 
-	i = 1;
+	split = ft_split(str, ' ');
+	stack->str_nbrs++;
 	j = 0;
-	temp = ft_atoi(ac[i]);
-	stack_a->a = ft_lstnew(temp);
-	templist = stack_a->a;
-	while (ac[i] && stack_a->a)
+	count = get_word(str, ' ');
+	while (j < count)
 	{
-		if (find_space(ac[i], ' '))
-			j = fill_helper(ac[i], j, stack_a);
+		temp = ft_atoi(split[j]);
+		if (is_int(temp))
+		{
+			stack->a[k] = ft_atoi(split[j]);
+			k++;
+		}
+		else
+			stack->is_correct = false;
+		j++;
+	}
+	free_matrix(split);
+	return (k - 1);
+}
+
+void	array_fill(char **argv, t_stack *stack)
+{
+	int				k;
+	int				i;
+	long long int	temp;
+
+	stack->a = (int *) malloc(sizeof(int) * stack->a_size);
+	stack->b = (int *) malloc(sizeof(int) * stack->a_size);
+	k = 0;
+	i = 1;
+	while (argv[i])
+	{
+		if (is_in_string(' ', argv[i]))
+			k = fill_helper(stack, k, argv[i]);
 		else
 		{
-			temp = ft_atoi(ac[i]);
-			if (is_int((int)temp))
-			{
-				if (i < av - 1)
-					ft_lstadd(&(stack_a->a));
-				if (stack_a->a)
-				stack_a->a->n = (int)temp;
-			}
-			j++;
+			temp = ft_atoi(argv[i]);
+			if (is_int(temp))
+				stack->a[k] = (int) ft_atoi(argv[i]);
+			else
+				stack->is_correct = false;
 		}
-		stack_a->a = stack_a->a->next;
+		k++;
 		i++;
 	}
-	stack_a->a = templist;
 }
-*/
