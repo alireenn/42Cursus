@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 15:10:58 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/17 17:57:24 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/18 16:34:12 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,13 @@ typedef struct s_stack
 	int		*b;
 	int		a_size;
 	int		b_size;
-	int		args;
+	// int		args;
 	bool	is_correct;
 	int		str_nbrs;
-	int		*lis;
-	int		lis_num_max;
+	// int		*lis;
+	// int		lis_num_max;
 }				t_stack;
 
-// typedef struct s_node{
-// 	int				n;
-// 	struct s_node	*next;
-// }	t_node;
-
-// typedef struct s_stacks{
-// 	t_node	*a;
-// 	t_node	*b;
-// 	int		isok;
-// }	t_stacks;
 					/*	check	*/
 //check.c
 bool			is_ok(char ac);
@@ -51,7 +41,11 @@ bool			check(char **ac);
 //small_swap.c
 void			decrescent_algorithm(t_stack *stack);
 void			sort_three(t_stack *stack);
+void			sort_five(t_stack *stack);
 void			choose_alg(t_stack *stack);
+int				find_min_pos(t_stack *stack);
+//big_soreta.c
+void			big_sort(t_stack *stack);
 					/*rules*/
 void			array_fill(char **argv, t_stack *stack);
 int				fill_helper(t_stack *stack, int k, char *str);

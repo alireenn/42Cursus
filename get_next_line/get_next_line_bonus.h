@@ -6,12 +6,16 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 22:29:53 by anovelli          #+#    #+#             */
-/*   Updated: 2022/01/30 20:10:01 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/23 16:43:42 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_BONUS_H
 # define GET_NEXT_LINE_BONUS_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1000
+# endif
 
 # include <stdlib.h>
 # include <unistd.h>

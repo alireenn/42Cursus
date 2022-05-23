@@ -1,32 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   big_soreta.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 22:29:53 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/23 16:43:48 by anovelli         ###   ########.fr       */
+/*   Created: 2022/05/18 16:31:48 by anovelli          #+#    #+#             */
+/*   Updated: 2022/05/23 14:34:43 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "../push_swap.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1000
-# endif
+int	find_min(t_stack *stack)
+{
+	int	i;
+	int	min;
 
-# include <stdlib.h>
-# include <unistd.h>
+	i = 0;
+	min = __INT_MAX__ ;
+	while (i < stack->a_size)
+	{
+		if (stack->a[i] < min)
+			min = stack->a[i];
+		i++;
+	}
+	return (min);
+}
 
-char	*nextline(char *save);
-char	*findnl(char *save);
-char	*ft_save(int fd, char *save);
-char	*get_next_line(int fd);
-size_t	ft_strlen(char *str);
-char	*ft_strjoin(char *s1, char *s2);
-char	*ft_strchr(char *s, int c);
-char	*ft_strdup(char *s1);
-
-#endif
+ void	big_sort(t_stack *stack)
+ {
+	int	i;
+	int	j;
+	// int	min;
+	j = 0;
+	i = 0;
+	// min = stack->a[i];
+	// while (i <= stack->a_size)
+	// {
+	// 	min = find_min(stack);
+	// 	i++;
+	// }
+	
+}

@@ -12,7 +12,8 @@ SRC	=	push_swap.c				\
 		utils/ft_split.c		\
 		utils/int_utils.c 		\
 		utils/utils_string.c 	\
-		order/small_swap.c 	\
+		order/small_swap.c 		\
+		order/big_soreta.c 		\
 		
 OBJ	=	$(SRC:.c=.o)
 

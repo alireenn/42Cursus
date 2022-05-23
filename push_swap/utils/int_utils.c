@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 15:49:22 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/17 17:01:45 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/18 10:51:39 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,3 @@ int	count_numbers(char **argv)
 	}
 	return (count);
 }
-
-

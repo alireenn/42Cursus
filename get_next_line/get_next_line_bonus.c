@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 23:11:03 by anovelli          #+#    #+#             */
-/*   Updated: 2022/01/30 19:28:09 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/23 16:44:22 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"get_next_line.h"
+#include"get_next_line_bonus.h"
 
 char	*nextline(char *save)
 {
@@ -96,10 +96,10 @@ char	*ft_save(int fd, char *save)
 
 char	*get_next_line(int fd)
 {
-	static char	*save[257];
+	static char	*save[4096];
 	char		*ret;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 256)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	if (!save[fd])
 		save[fd] = ft_strdup("");

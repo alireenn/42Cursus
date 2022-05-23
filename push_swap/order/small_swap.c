@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 13:06:50 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/17 17:58:02 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/19 16:31:34 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,49 @@ void	sort_three(t_stack *stack)
 		ft_rra(stack, true);
 }
 
+int	find_min_pos(t_stack *stack)
+{
+	int	pos;
+	int	i;
+
+	i = 1;
+	pos = 0;
+	while (i < stack->a_size)
+	{
+		if (stack->a[i] < stack->a[pos])
+			pos = i;
+		i++;
+	}
+	return (pos);
+}
+
+void	sort_five(t_stack *stack)
+{
+	int	i;
+	
+	while (stack->a_size > 3)
+	{
+		i = find_min_pos(stack);
+		if (i < 3)
+		{
+			while (i-- > 0)
+				ft_ra(stack, 1);
+		}
+		else
+		{
+			while (stack->a_size - i > 0)
+			{
+				ft_rra(stack, 1);
+				i++;
+			}
+		}
+		ft_pb(stack, 1);
+	}
+	sort_three(stack);
+	ft_pa(stack, 1);
+	ft_pa(stack, 1);
+}
+
 void	choose_alg(t_stack *stack)
 {
 	if (stack->a_size == 2)
@@ -53,7 +96,7 @@ void	choose_alg(t_stack *stack)
 	else if (stack->a_size == 3)
 		sort_three(stack);
 	else if (stack->a_size == 5)
-		printf("Non ancora implementato/fatti i cazzi tuoi\n");
+		sort_five(stack);
 	else
-		printf("Neanche questo è implementato\n");
+		big_sort(stack);
 }
