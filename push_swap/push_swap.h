@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 15:10:58 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/24 12:38:41 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/24 15:02:23 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ typedef struct s_stack
 	// int		args;
 	bool	is_correct;
 	int		str_nbrs;
-	// int		*lis;
-	// int		lis_num_max;
+	int		*lis;
+	int		lis_num_max;
 }				t_stack;
 
 					/*	check	*/
