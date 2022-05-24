@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 16:31:48 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/24 16:33:14 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/24 17:26:54 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,20 @@ int	ft_lis(t_stack *stack)
 {
 	int	i;
 	int	j;
+	int	var_lis;
 
-	j = 0;
-	i = 0;
-	stack->lis = malloc(sizeof(stack->a_size));
-	while (i < stack->a_size)
-	{
+	j = 1;
+	var_lis = 2;
+	i = -1;
+	stack->lis = (int *) malloc(sizeof(int) * stack->a_size);
+	while (++i != stack->a_size)
 		stack->lis[i] = 1;
-		i++;
-		printf("%d\n", stack->lis[i]);
-	}
+	while (j != stack->a_size)
+	{
+		
+	}	
+	for (int e = 0; e < stack->a_size; e++)
+		printf("%d\n", stack->lis[e]);
 	return (1);
 }
 
@@ -52,7 +56,7 @@ int	ft_lis(t_stack *stack)
 	// int	count;
 
 	ft_lis(stack);
-	printf ("%d\n", stack->lis_num_max);
+	// printf ("%d\n", stack->lis_num_max);
 	// int	min;
 	// count = 0;
 	// j = 0;
