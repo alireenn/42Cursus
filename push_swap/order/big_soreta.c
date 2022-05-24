@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 16:31:48 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/23 14:34:43 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/24 13:13:12 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,13 @@ int	find_min(t_stack *stack)
  {
 	int	i;
 	int	j;
+	int	count;
 	// int	min;
+	count = 0;
 	j = 0;
 	i = 0;
-	// min = stack->a[i];
-	// while (i <= stack->a_size)
-	// {
-	// 	min = find_min(stack);
-	// 	i++;
-	// }
-	
+	while (j < stack->a_size)
+	{
+		
+	}
 }
