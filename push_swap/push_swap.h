@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 15:10:58 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/24 15:02:23 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/30 12:54:11 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ void			choose_alg(t_stack *stack);
 int				find_min_pos(t_stack *stack);
 //big_soreta.c
 void			big_sort(t_stack *stack);
+void			ft_lis2(t_stack *stack);
+int				ft_lis3(t_stack *stack);
+void			ft_lis(t_stack *stack);
 					/*rules*/
 void			array_fill(char **argv, t_stack *stack);
 int				fill_helper(t_stack *stack, int k, char *str);
@@ -70,6 +73,7 @@ void			ft_sab(t_stack *stack, bool can_write);
 int				ft_strlen(const char *str);
 size_t			get_word(const char *s, char c);
 char			**ft_split(const char *s, char c);
+int				find_min(t_stack *stack);
 //int_utils.c
 void			free_matrix(char **matrix);
 bool			is_int(long long int nb);

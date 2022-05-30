@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   big_soreta2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 17:09:05 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/30 12:57:03 by anovelli         ###   ########.fr       */
+/*   Created: 2022/05/30 12:58:34 by anovelli          #+#    #+#             */
+/*   Updated: 2022/05/30 13:07:12 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include"../push_swap.h"
 
-int	main(int av, char **ac)
+void	ft_lis4(t_stack *stack, int b_lastindex)
 {
-	t_stack	stack;
-
-	if (av < 2)
-		return (write(2, "Error: too few parameters.\n", 27));
-	if (av == 2)
-		if (get_word(ac[1], ' ') < 2)
-			return (write(2, "Error: too few parameters.\n", 27));
-	if (!check(ac))
-		return (write(2, "Error\n", 6));
-	stack.a_size = count_numbers(ac);
-	array_fill(ac, &stack);
-	choose_alg(&stack);
+	
 }

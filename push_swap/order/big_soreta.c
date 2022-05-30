@@ -6,27 +6,11 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 16:31:48 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/25 14:09:28 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/30 12:59:45 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-int	find_min(t_stack *stack)
-{
-	int	i;
-	int	min;
-
-	i = 0;
-	min = __INT_MAX__ ;
-	while (i < stack->a_size)
-	{
-		if (stack->a[i] < min)
-			min = stack->a[i];
-		i++;
-	}
-	return (min);
-}
 
 void	ft_lis(t_stack *stack)
 {
@@ -54,17 +38,58 @@ void	ft_lis(t_stack *stack)
 		}
 		j++;
 	}	
-	for (int e = 0; e < stack->a_size; e++)
-		printf("%d\n", stack->lis[e]);
-	printf("ciao %d\n", stack->lis_num_max);
 }
 
- void	big_sort(t_stack *stack)
- {
-	// int	i;
-	// int	j;
-	// int	count;
+void	ft_lis2(t_stack *stack)
+{
+	int	find;
+	int	i;
+
+	i = 0;
+	find = 1;
+	while (stack->lis[i])
+	{
+		if (stack->lis[i] == find)
+		{
+			stack->lis[i] = 1;
+			find++;
+		}
+		else
+			stack->lis[i] = 0;
+		i++;
+	}
+}
+
+int	ft_lis3(t_stack *stack)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while(i < stack->a_size)
+	{
+		if (stack->lis[i] == 0)
+		{
+			stack->b[j] = stack->a[i];
+			stack->a[i] = 0;
+			j++;
+		}
+		i++;
+	}
+	return (j);
+}
+
+void	big_sort(t_stack *stack)
+{
+	int	b_last_index;
 
 	ft_lis(stack);
-
-}
+	ft_lis2(stack);
+		for (int b = 0; b < stack->a_size; b++)
+				printf("dopo: %d\n", stack->lis[b]);
+	b_last_index = ft_lis3(stack);
+		for (int m = 0; m < stack->a_size; m++)
+			printf("a: %d			b: %d\n", stack->a[m], stack->b[m]);
+	ft_lis4(stack, b_last_index);
+ }

@@ -14,7 +14,8 @@ SRC	=	push_swap.c				\
 		utils/utils_string.c 	\
 		order/small_swap.c 		\
 		order/big_soreta.c 		\
-		
+		order/big_soreta2.c		\
+
 OBJ	=	$(SRC:.c=.o)
 
 %.o: %.c
@@ -25,7 +26,7 @@ RM		=	rm -fr
 
 
 $(NAME):	$(OBJ)
-			$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+			$(CC) $(CFLAGS) -g -o $(NAME) $(OBJ)
 			@(echo "\033[32mPUSH_SWAP>> Compiled\033[0m")
 
 all:		$(NAME)

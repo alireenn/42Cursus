@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:33:09 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/09 11:35:02 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/30 12:19:49 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,20 @@ char	**ft_split(const char *s, char c)
 	}
 	matrix[i] = 0;
 	return (matrix);
+}
+
+int	find_min(t_stack *stack)
+{
+	int	i;
+	int	min;
+
+	i = 0;
+	min = __INT_MAX__ ;
+	while (i < stack->a_size)
+	{
+		if (stack->a[i] < min)
+			min = stack->a[i];
+		i++;
+	}
+	return (min);
 }
