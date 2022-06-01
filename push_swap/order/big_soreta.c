@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 16:31:48 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/30 13:11:43 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/05/31 16:01:47 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ void	ft_lis(t_stack *stack)
 	int	i;
 	int	j;
 
+	i = 0;
 	j = 0;
-	i = -1;
-	stack->lis_num_max = 1;
-	stack->lis = (int *) malloc(sizeof(int) * stack->a_size);
-	while (++i != stack->a_size)
-		stack->lis[i] = 1;
-	while (j != stack->a_size)
+	stack->lis_num_max = 0;
+	stack->lis = malloc(stack->a_size * sizeof(int));
+	while (i < stack->a_size)
+		stack->lis[i++] = 1;
+	while (j < stack->a_size)
 	{
 		i = j;
-		while (i != stack->a_size)
+		while (i < stack->a_size)
 		{
 			if (stack->a[j] < stack->a[i] && stack->lis[j] == stack->lis[i])
 			{
@@ -60,34 +60,35 @@ void	ft_lis2(t_stack *stack)
 	}
 }
 
-int	ft_lis3(t_stack *stack)
+void	ft_lis3(t_stack *stack)
 {
 	int	i;
-	int	j;
+	int	temp_a_size;
 
+	temp_a_size = stack->a_size;
 	i = 0;
-	j = 0;
-	while(i < stack->a_size)
+	while(i <= temp_a_size - 1)
 	{
-		if (stack->lis[i] == 0)
-		{
-			stack->b[j] = stack->a[i];
-			stack->a[i] = 0;
-			j++;
-		}
+		if (stack->lis[i] == 1)
+			ft_ra(stack, true);
+		else
+			ft_pb(stack, true);
 		i++;
 	}
-	return (j);
 }
 
 void	big_sort(t_stack *stack)
 {
-	int	b_last_index;
-
 	ft_lis(stack);
+	for (int m = 0; m < stack->a_size; m++)
+			printf("lis: %d\n", stack->lis[m]);
 	ft_lis2(stack);
-	b_last_index = ft_lis3(stack);
+			for (int m = 0; m < stack->a_size; m++)
+			printf("lis2: %d\n", stack->lis[m]);
+	ft_lis3(stack);
 		for (int m = 0; m < stack->a_size; m++)
-			printf("a: %d			b: %d\n", stack->a[m], stack->b[m]);
-	ft_lis4(stack, b_last_index);
+			printf("a: %d\n", stack->a[m]);
+					for (int m = 0; m < stack->b_size; m++)
+			printf("		b: %d\n", stack->b[m]);
+	// ft_lis4(stack);
  }
