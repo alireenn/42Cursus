@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 16:31:48 by anovelli          #+#    #+#             */
-/*   Updated: 2022/06/01 13:02:42 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/06/01 16:14:23 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,5 @@ void	big_sort(t_stack *stack)
 			printf("a: %d\n", stack->a[m]);
 					for (int m = 0; m < stack->b_size; m++)
 			printf("		b: %d\n", stack->b[m]);
-	// ft_lis4(stack);
+	ft_lis4(stack);
  }
