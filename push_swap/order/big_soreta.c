@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 16:31:48 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/31 16:01:47 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/06/01 13:02:42 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,19 @@ void	ft_lis2(t_stack *stack)
 	int	find;
 	int	i;
 
-	i = 0;
-	find = 1;
-	while (stack->lis[i])
+	i = stack->a_size;
+	find = stack->lis_num_max;
+	printf("find :%d \n", find);
+	while (i >= 0)
 	{
 		if (stack->lis[i] == find)
 		{
 			stack->lis[i] = 1;
-			find++;
+			find--;
 		}
 		else
 			stack->lis[i] = 0;
-		i++;
+		i--;
 	}
 }
 
