@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 16:31:48 by anovelli          #+#    #+#             */
-/*   Updated: 2022/06/01 16:14:23 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/06/01 17:21:11 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	ft_lis2(t_stack *stack)
 
 	i = stack->a_size;
 	find = stack->lis_num_max;
-	printf("find :%d \n", find);
 	while (i >= 0)
 	{
 		if (stack->lis[i] == find)
@@ -81,15 +80,13 @@ void	ft_lis3(t_stack *stack)
 void	big_sort(t_stack *stack)
 {
 	ft_lis(stack);
-	for (int m = 0; m < stack->a_size; m++)
-			printf("lis: %d\n", stack->lis[m]);
 	ft_lis2(stack);
-			for (int m = 0; m < stack->a_size; m++)
+		for (int m = 0; m < stack->a_size; m++)
 			printf("lis2: %d\n", stack->lis[m]);
 	ft_lis3(stack);
 		for (int m = 0; m < stack->a_size; m++)
 			printf("a: %d\n", stack->a[m]);
-					for (int m = 0; m < stack->b_size; m++)
+		for (int m = 0; m < stack->b_size; m++)
 			printf("		b: %d\n", stack->b[m]);
 	ft_lis4(stack);
  }
