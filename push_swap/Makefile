@@ -4,7 +4,7 @@ CHECKERNAME=checker
 
 CC=gcc
 
-FLAGS=-Wall -Werror -Wextra -g
+FLAGS=-Wall -Werror -Wextra
 
 SRC=utils/check_utils.c 		\
 	utils/checks.c 				\
@@ -60,7 +60,7 @@ clean:
 
 fclean:		clean
 			rm -rf $(NAME)
-			rm -r $(CHECKERNAME)
+			rm -f $(CHECKERNAME)
 			@echo "\033[33mPUSH_SWAP>> Project cleaned\033[0m"
 
 re: fclean all
