@@ -1,54 +1,69 @@
-NAME	=	push_swap
+NAME=push_swap
 
-CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror -g
+CHECKERNAME=checker
 
-SRC	=	push_swap.c				\
-		check/check.c			\
-		rules/rules.c			\
-		rules/rules2.c			\
-		rules/rules3.c			\
-		rules/fill_stacks.c		\
-		utils/ft_split.c		\
-		utils/int_utils.c 		\
-		utils/utils_string.c 	\
-		order/small_swap.c 		\
-		order/big_soreta.c 		\
-		order/big_soreta2.c		\
+CC=gcc
 
-OBJ	=	$(SRC:.c=.o)
+FLAGS=-Wall -Werror -Wextra -g
 
-%.o: %.c
-			$(CC) ${CFLAGS} -g -c $< -o $@ 
+SRC=utils/check_utils.c 		\
+	utils/checks.c 				\
+	decide.c 					\
+	find_a_way.c 				\
+	find.c 						\
+	moves/move_utils.c 			\
+	moves/moves_both.c 			\
+	moves/moves.c 				\
+	moves/moves2.c 				\
+	utils/sort_utils.c 			\
+	to_do.c 					\
+	treat.c 					\
+	utils/utils.c 				\
+	utils/utils2.c 				\
+	values.c					\
 
+MAIN=push_swap.c
 
-RM		=	rm -fr
+MAINBONUS=checker.c
 
+BONUSSRC=checker_.c 							\
+	checker_2.c 							\
+	checker_3.c								\
+	LIBFT/get_next_line/get_next_line.c			\
+	LIBFT/get_next_line/get_next_line_utils.c 	\
 
-$(NAME):	$(OBJ)
-			$(CC) $(CFLAGS) -g -o $(NAME) $(OBJ)
-			@(echo "\033[32mPUSH_SWAP>> Compiled\033[0m")
+OBJS=$(SRC:.c=.o)
+MAINO=$(MAIN:.c=.o)
+CHECKEROBJS=$(BONUSSRC:.c=.o)
+CHECKO=$(MAINBONUS:.c=.o)
 
-all:		$(NAME)
+LIBFT=./LIBFT/libft.a
 
-norme:		
-		norminette $(SRC)
+$(NAME): $(OBJS) $(LIBFT) $(MAINO)
+	$(CC) $(FLAGS) $(SRC) $(MAIN) $(LIBFT) -o $(NAME)
 
-normehead:		
-		norminette -R CheckForbiddenSourceHeader $(SRC)
+$(LIBFT):
+	$(MAKE) -C ./LIBFT/
+
+all: $(NAME)
+
+$(CHECKERNAME): $(OBJS) $(CHECKEROBJS) $(CHECKO) $(LIBFT)
+	$(CC) $(FLAGS) $(CHECKO) $(CHECKEROBJS) $(OBJS) $(LIBFT) -o $(CHECKERNAME)
+
+bonus: $(CHECKERNAME)
 
 clean:
+			make clean -C ./LIBFT/
 			rm -f *.o
 			rm -f ./*/*.o
 			@echo "\033[33mPUSH_SWAP>> Deleted \".o\" files\033[0m"
 
 fclean:		clean
 			rm -rf $(NAME)
+			rm -r $(CHECKERNAME)
 			@echo "\033[33mPUSH_SWAP>> Project cleaned\033[0m"
 
-re:			fclean all
-			@echo "\033[0;92mPUSH_SWAP>> Project cleaned and recompiled\033[0m"
+re: fclean all
+	@echo "\033[0;92mPUSH_SWAP>> Project cleaned and recompiled\033[0m"
 
-re.all:		fclean
-
-.PHONY:		all clean fclean re
+.PHONY: all clean fclean re

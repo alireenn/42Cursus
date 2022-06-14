@@ -1,29 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 17:09:05 by anovelli          #+#    #+#             */
-/*   Updated: 2022/05/30 12:57:03 by anovelli         ###   ########.fr       */
+/*   Created: 2022/05/08 15:44:39 by anovelli          #+#    #+#             */
+/*   Updated: 2022/06/08 16:50:57 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int av, char **ac)
+void	usage(t_stack *a, t_stack *b)
 {
-	t_stack	stack;
+	if (a->len == 2 && !ordered(a))
+		sa(a, 1);
+	if (!ordered(a) && a->len < 4)
+		sort_3(a);
+	else if (!ordered(a) && a->len < 6)
+		sort_5(a, b);
+	else if (!ordered(a))
+	{
+		sort(a, b);
+		free(a->best);
+	}
+}
 
-	if (av < 2)
-		return (write(2, "Error: too few parameters.\n", 27));
-	if (av == 2)
-		if (get_word(ac[1], ' ') < 2)
-			return (write(2, "Error: too few parameters.\n", 27));
-	if (!check(ac))
-		return (write(2, "Error\n", 6));
-	stack.a_size = count_numbers(ac);
-	array_fill(ac, &stack);
-	choose_alg(&stack);
+int	main(int argc, char **argv)
+{
+	t_stack	a;
+	t_stack	b;
+	int		i;
+	char	**argv2;
+
+	i = 1;
+	argv2 = argv;
+	argc = control_arg(argc, &argv2, argv, &i);
+	if (argc > 1)
+	{
+		allocate(&a, &b, argc);
+		checks(argc, argv2, &a, i);
+		usage(&a, &b);
+		free(a.array);
+		free(b.array);
+	}
+	return (0);
 }
