@@ -5,71 +5,127 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/15 11:55:04 by anovelli          #+#    #+#             */
-/*   Updated: 2022/01/15 13:53:32 by anovelli         ###   ########.fr       */
+/*   Created: 2022/06/16 13:13:05 by gcucino           #+#    #+#             */
+/*   Updated: 2022/06/16 14:00:13 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-static int	count_words(const char *str, char c)
+int	ft_issep(char c, char *str)
 {
 	int	i;
-	int	trigger;
 
 	i = 0;
-	trigger = 0;
-	while (*str)
+	while (str[i] != '\0')
 	{
-		if (*str != c && trigger == 0)
-		{
-			trigger = 1;
-			i++;
-		}
-		else if (*str == c)
-			trigger = 0;
-		str++;
-	}
-	return (i);
-}
-
-static char	*word_dup(const char *str, int start, int finish)
-{
-	char	*word;
-	int		i;
-
-	i = 0;
-	word = malloc((finish - start + 1) * sizeof(char));
-	while (start < finish)
-		word[i++] = str[start++];
-	word[i] = '\0';
-	return (word);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	size_t	i;
-	size_t	j;
-	int		index;
-	char	**split;
-
-	split = malloc((count_words(s, c) + 1) * sizeof(char *));
-	if (!s || !split)
-		return (NULL);
-	i = 0;
-	j = 0;
-	index = -1;
-	while (i <= ft_strlen(s))
-	{
-		if (s[i] != c && index < 0)
-			index = i;
-		else if ((s[i] == c || i == ft_strlen(s)) && index >= 0)
-		{
-			split[j++] = word_dup(s, index, i);
-			index = -1;
-		}
+		if (str[i] == c)
+			return (1);
 		i++;
 	}
-	split[j] = 0;
-	return (split);
+	return (0);
+}
+
+int	ft_strcount(char *str, char *charset)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (str[i] != '\0')
+	{
+		if (ft_issep(str[i], charset) == 0)
+		{
+			count++;
+			while (str[i] != '\0')
+			{
+				if (ft_issep(str[i], charset) == 1)
+					break ;
+				i++;
+			}
+		}
+		else
+			i++;
+	}
+	return (count);
+}
+
+int	ft_strlen_2(char *str, char *charset)
+{
+	int	i;
+	int	len;
+
+	i = 0;
+	len = 0;
+	while (str[i] != '\0')
+	{
+		if (ft_issep(str[i], charset) == 0)
+		{
+			while (str[i] != '\0')
+			{
+				if (ft_issep(str[i], charset) == 1)
+					break ;
+				i++;
+				len++;
+			}
+			return (len);
+		}
+		else
+			i++;
+	}
+	return (0);
+}
+
+int	ft_putstr(char *str, char *charset, char *matrix)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (str[i] != '\0')
+	{
+		if (ft_issep(str[i], charset) == 0)
+		{
+			while (str[i] != '\0')
+			{
+				if (ft_issep(str[i], charset) == 1)
+					break ;
+				matrix[j] = str[i];
+				j++;
+				i++;
+			}
+			matrix[j] = '\0';
+			return (i);
+		}
+		else
+			i++;
+	}
+	return (0);
+}
+
+char	**ft_split(char *str, char *charset, int *c)
+{
+	int		count;
+	char	**matrix;
+	int		row;
+	int		len;
+	int		offset;
+
+	offset = 0;
+	count = ft_strcount(str, charset);
+	(*c) = count;
+	matrix = (char **) malloc (sizeof(char *) * count + 1);
+	matrix[count] = 0;
+	row = 0;
+	while (row < count)
+	{
+		len = ft_strlen_2(str, charset);
+		matrix[row] = (char *) malloc (sizeof(char) * len + 1);
+		offset = ft_putstr(str, charset, matrix[row]);
+		str += offset;
+		row++;
+	}
+	return (matrix);
 }

@@ -6,7 +6,7 @@
 /*   By: anovelli <anovelli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 13:52:55 by anovelli          #+#    #+#             */
-/*   Updated: 2022/06/14 10:10:07 by anovelli         ###   ########.fr       */
+/*   Updated: 2022/06/14 12:41:05 by anovelli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ static void	check_int_and_fill(int argc, char **argv, t_stack *a, int flag)
 	{
 		digit = check_char(argv[i + flag]);
 		if (!digit)
-			err("ErrorCHAR\n");
+			err("Error\n");
 		if ((int)ft_strlen(argv[i + flag]) > 11)
-			err("ErrorLEN\n");
+			err("Error\n");
 		temp = ft_atol(argv[i + flag]);
 		if (temp >= 2147483648 || temp < -2147483648)
-			err("ErrorLONG\n");
+			err("Error\n");
 		a->array[i++] = (int)temp;
 	}
 	a->len = argc - flag;
