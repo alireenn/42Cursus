@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	init_rules(argv, philo);
 	ret = check_arguments(philo);
 	if (ret == 0)
-		return (printf("wrong arguments"));
+		return (printf("wrong arguments\n"));
 
 	printf("%d\n", philo->rules->n_philo);
 	printf("%d\n", philo->rules->time_to_die);

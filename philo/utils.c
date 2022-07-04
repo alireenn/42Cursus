@@ -56,3 +56,32 @@ void	init_rules(char **argv, t_philo *philo)
 	if (argv[5])
 		philo->rules->bonus_must_eat = ft_atoi(argv[5]);
 }
+
+void	init_philo(t_all *all)
+{
+	int	i;
+	int	j;
+
+	all->philo = malloc(sizeof(t_philo) * (all->philo->rules->n_philo + 1));
+	i = 0;
+	j = 1;
+	while (j < all->philo->rules->n_philo)
+	{
+		fill_philo_struct(all, i, j);
+		i++;
+		j++;
+	}
+	j = 0;
+	fill_philo_struct(all, i, j);
+}
+
+void	fill_philo_struct(t_all *all, int i, int j)
+{
+	all->philo[i].id = i + 1;
+	all->philo[i].num_of_times_ate = 0;
+	all->philo[i].rules->bonus_must_eat = 0;
+	all->philo[i].fork.left = i;
+	all->philo[i].fork.right = j;
+}
+
+
