@@ -79,7 +79,7 @@ void	fill_philo_struct(t_all *all, int i, int j)
 {
 	all->philo[i].id = i + 1;
 	all->philo[i].num_of_times_ate = 0;
-	all->philo[i].rules->bonus_must_eat = 0;
+	all->philo[i].time_to_die = 0;
 	all->philo[i].fork.left = i;
 	all->philo[i].fork.right = j;
 }

@@ -42,6 +42,7 @@ typedef struct s_fork
 typedef struct s_philo{
 	t_rules		*rules;
 	int			num_of_times_ate;
+	long long	time_to_die;
 	int			id;
 	t_fork		fork;
 	pthread_t	thread;
